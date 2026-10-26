@@ -12,7 +12,7 @@ const IBS_FROM = 20; // IBS clip frame at the scene's first frame; it plays on i
 const IBS_POS = "24% 50%"; // object-position: shows the IBS signage + door rather than the middle of the bench
 
 const insetFor = (p: number) => {
-  const top = HERO.y * (1 - p), left = HERO.x * (1 - p), right = HERO.x * (1 - p), bottom = (H - HERO.y - HERO.h) * (1 - p);
+  const top = HERO.y * p, left = HERO.x * p, right = HERO.x * p, bottom = (H - HERO.y - HERO.h) * p; // p = 1 -> hero window, 0 -> full-bleed
   return `inset(${top}px ${right}px ${bottom}px ${left}px)`;
 };
 
