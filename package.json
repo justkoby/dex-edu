@@ -11,8 +11,8 @@
     "render:full": "remotion render src/index.ts Dexterity-Skit out/.raw-v2-final.mp4 --crf=17 --concurrency=4 && bash scripts/master-audio.sh out/.raw-v2-final.mp4 out/dexterity-skit-v2-final.mp4",
     "voices": "python3 scripts/process_voices.py",
     "motion:studio": "remotion studio src/index.ts",
-    "motion:draft": "remotion render src/index.ts Dexterity-Motion-Budapest out/.raw-motion-preview.mp4 --scale=0.6666666666666666 --crf=22 --concurrency=4 && bash scripts/master-audio.sh out/.raw-motion-preview.mp4 out/dexterity-motion-budapest-preview.mp4",
-    "motion:full": "remotion render src/index.ts Dexterity-Motion-Budapest out/.raw-motion-final.mp4 --crf=17 --concurrency=4 && bash scripts/master-audio.sh out/.raw-motion-final.mp4 out/dexterity-motion-budapest-final.mp4"
+    "motion:draft": "remotion render src/index.ts Dexterity-Motion-Budapest out/.raw-motion-v2-preview.mp4 --scale=0.6666666666666666 --crf=22 --concurrency=4 && bash scripts/master-audio.sh out/.raw-motion-v2-preview.mp4 out/dexterity-motion-budapest-v2-preview.mp4",
+    "motion:full": "remotion render src/index.ts Dexterity-Motion-Budapest out/.raw-motion-v2-final.mp4 --crf=17 --concurrency=4 && bash scripts/master-audio.sh out/.raw-motion-v2-final.mp4 out/dexterity-motion-budapest-v2-final.mp4"
   },
   "dependencies": {
     "@fontsource-variable/archivo": "^5.3.0",

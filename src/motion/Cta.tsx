@@ -39,16 +39,16 @@ export const Cta: React.FC = () => {
       </div>
 
       {/* 2 — message */}
-      <div style={{ position: "absolute", left: 64, top: 720, width: FW }}>
+      <div style={{ position: "absolute", left: 64, top: 742, width: FW }}>
         <MaskLine at={62} dur={14}><div style={{ ...type(30, 100, 800), color: C.orange, letterSpacing: 6 }}>STUDY OPPORTUNITIES IN HUNGARY</div></MaskLine>
         <div style={{ marginTop: 28 }}>
-          <MaskLine at={70} dur={16}><FitText text="Let’s get you" width={FW} size={170} fill={C.white} /></MaskLine>
-          <MaskLine at={78} dur={16} style={{ marginTop: 12 }}><FitText text="Started" width={FW} size={250} fill={C.white} /></MaskLine>
+          <MaskLine at={70} dur={16}><FitText text="Let’s get you" width={FW} size={150} fill={C.white} /></MaskLine>
+          <MaskLine at={78} dur={16} style={{ marginTop: 12 }}><FitText text="Started" width={FW} size={225} fill={C.white} /></MaskLine>
         </div>
       </div>
 
       {/* 3 — primary action */}
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1112, display: "flex", justifyContent: "center", transform: `scale(${interpolate(btn, [0, 1], [0.6, 1]) * pulse})`, opacity: Math.min(1, btn * 1.6) }}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1122, display: "flex", justifyContent: "center", transform: `scale(${interpolate(btn, [0, 1], [0.6, 1]) * pulse})`, opacity: Math.min(1, btn * 1.6) }}>
         <div style={{ background: C.orange, color: C.white, display: "flex", alignItems: "center", gap: 22, padding: "30px 52px", borderRadius: 999, boxShadow: "0 22px 50px rgba(243,122,32,.45)", ...type(52, 100, 800), letterSpacing: 1.5, lineHeight: 1 }}>
           <ChatIcon size={62} />
           ENQUIRE ON WHATSAPP
@@ -57,7 +57,7 @@ export const Cta: React.FC = () => {
       </div>
 
       {/* 4 — contacts */}
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1296, textAlign: "center", color: C.white }}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1300, textAlign: "center", color: C.white }}>
         <div style={{ ...type(50, 100, 800), letterSpacing: 1, lineHeight: 1.1, opacity: info, transform: `translateY(${(1 - info) * 18}px)` }}>0244489721 <span style={{ color: C.orange }}>·</span> 0303984034</div>
         <div style={{ ...type(34, 100, 600), letterSpacing: 1, textTransform: "none", marginTop: 12, opacity: 0.92 * site, transform: `translateY(${(1 - site) * 14}px)` }}>dexterityedutravel.com</div>
       </div>

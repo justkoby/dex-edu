@@ -45,3 +45,26 @@ npm run motion:draft      # out/dexterity-motion-budapest-preview.mp4  (720×128
 npm run motion:full       # out/dexterity-motion-budapest-final.mp4    (1080×1920)
 scripts/qa.sh out/dexterity-motion-budapest-preview.mp4 out/qa-motion
 ```
+
+
+---
+# V2 refinement (branch `feature/dexterity-motion-budapest-v2`)
+
+Duration 30.6 s (was 30.0) — the route scene lost one beat so the end card holds for 7.2 s (≈4 s of readable hold). All cuts remain on the 0.6 s beat grid.
+
+## What changed
+| Area | V1 | V2 |
+|---|---|---|
+| Opening | stretch/skew/ghost slam | clean spring slam (scale + tiny settle), no glitch; "WAS…" now enters on the beat before the drop and holds until the impact; masks use expo-in / in-out-out |
+| Map | route a small element | route is the hero: glow underlay, bolder dotted line, larger aircraft (shadowed, heading from path tangent), tighter camera with eased pull-back/push-in; labelled geography (Gulf of Guinea, Sahara, Mediterranean, Adriatic, Black Sea, Atlantic); Accra quiet/small, Budapest large + orange; verified lat/lon captions (5.60° N 0.19° W / 47.50° N 19.04° E); the destination ring becomes the circular mask that opens onto Budapest footage |
+| IBS | same card layout as BMU | editorial photo grid: Parliament footage contracts into the dominant panel, a left→right wipe swaps it to IBS, justified two-line name overlaps the panel edge, giant orange "IBS", second *verified* view (wide facade photo) masks in with an orange offset block; hero & photo drift in opposite directions |
+| BMU | same as IBS | cinematic full-bleed: IBS panel expands to full frame (frame extension / match cut), slanted wipe to BMU, slow push, name slides in from the right edge with motion blur, thin frame + rule draw themselves, pulsing orange location marker, navy bars close into the next scene |
+| Kinetic type | three similar slams | EXPLORE. revealed over layered outline rows drifting in opposite directions + compass; APPLY. letters stamped on beat subdivisions with a drawn tick; GO FURTHER. slides along the direction of travel with a horizontal outline trail, speed lines and aircraft; campaign line rises out of masks with the route line crossing "BORDERS." Each colour field arrives by the same left→right slanted wipe |
+| Logo | rectangular plate | `Logo.svg` has **no** background rectangle (transparent, 38 paths); the plate was my own. The original paths are now drawn directly on navy: orange mark rises glyph by glyph, wordmark follows letter by letter. Navy wordmark is shown white on the navy field (standard one-colour reversal); orange is untouched |
+| End card | crowded | order: logo → message → WhatsApp action → contacts, 7.2 s with a ~4 s hold, safe-area spacing |
+| Transitions | orange sweep everywhere | one language: letters-as-window, ring-expands-to-circle, frame contraction/extension (match cuts), left→right slanted wipes, closing bars |
+| Colour | unchecked | shared light grade (`GRADE` in tokens.ts) per clip + no decorative cards |
+| Sound | many effects | fewer, quieter cues on the beat grid; music drop re-measured at 13.19 s |
+
+## Music licence
+Still the unverified-licence track → **preview only**.
