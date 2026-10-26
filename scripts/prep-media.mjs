@@ -34,6 +34,7 @@ const stills = [
   ["20140919_134440_bmEhMUO.2e16d0ba.fill-1200x628.jpg", "ibs_building.jpg"],
   ["images.jpg", "bmu_facade.jpg"],
   ["east-legon.jpg", "east_legon.jpg"],
+  ["images (1).jpg", "bmu_garden.jpg"],
   ["164735_LandinPage3.jpg_1900x1000.avif", "campus_crowd.jpg"],
 ];
 for (const [s, o] of stills) ff("-i", src(s), "-q:v", "2", path.join(out, o));
@@ -50,4 +51,6 @@ for (const w of [500, 700, 800, 900]) {
   const p = path.join(root, "node_modules/@fontsource/montserrat/files", f);
   if (existsSync(p)) copyFileSync(p, path.join(root, "public", "fonts", f));
 }
+const wd = path.join(root, "node_modules/@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2");
+if (existsSync(wd)) copyFileSync(wd, path.join(root, "public", "fonts", "archivo-latin-wdth-normal.woff2"));
 console.log("media ready");

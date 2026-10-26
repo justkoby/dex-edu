@@ -9,11 +9,17 @@
     "prep": "node scripts/prep-media.mjs",
     "render:draft": "remotion render src/index.ts Dexterity-Skit out/.raw-v2-preview.mp4 --scale=0.6666666666666666 --crf=22 --concurrency=4 && bash scripts/master-audio.sh out/.raw-v2-preview.mp4 out/dexterity-skit-v2-preview.mp4",
     "render:full": "remotion render src/index.ts Dexterity-Skit out/.raw-v2-final.mp4 --crf=17 --concurrency=4 && bash scripts/master-audio.sh out/.raw-v2-final.mp4 out/dexterity-skit-v2-final.mp4",
-    "voices": "python3 scripts/process_voices.py"
+    "voices": "python3 scripts/process_voices.py",
+    "motion:studio": "remotion studio src/index.ts",
+    "motion:draft": "remotion render src/index.ts Dexterity-Motion-Budapest out/.raw-motion-preview.mp4 --scale=0.6666666666666666 --crf=22 --concurrency=4 && bash scripts/master-audio.sh out/.raw-motion-preview.mp4 out/dexterity-motion-budapest-preview.mp4",
+    "motion:full": "remotion render src/index.ts Dexterity-Motion-Budapest out/.raw-motion-final.mp4 --crf=17 --concurrency=4 && bash scripts/master-audio.sh out/.raw-motion-final.mp4 out/dexterity-motion-budapest-final.mp4"
   },
   "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
     "@fontsource/montserrat": "^5.3.0",
     "@remotion/cli": "^4.0.250",
+    "@remotion/motion-blur": "^4.0.250",
+    "@remotion/paths": "^4.0.250",
     "@remotion/transitions": "^4.0.250",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -21,6 +27,10 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.31",
-    "typescript": "^5.6.3"
+    "@types/topojson-client": "^3.1.5",
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
+    "typescript": "^5.6.3",
+    "world-atlas": "^2.0.2"
   }
 }

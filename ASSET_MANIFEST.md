@@ -72,3 +72,9 @@ ring (double-burst), call connect, UI tick, call disconnect, whooshes, record sc
 - **Statue / Parliament dome clips**: generic Budapest — labelled "Budapest, Hungary" only.
 - **Group/crowd clip** (`… 3_04PM.mp4`, 2nd half) and the `Garden_party` / `164735_LandinPage3` crowd photos: no signage, **not** labelled with a university.
 - East Legon images: still unverified, unused.
+
+## Concept 2 (motion advert) additions
+- Uses only: Parliament dome + statue clips, IBS clip + IBS photo, BMU campus clip + BMU facade photo (sign verified), `Logo.svg`. No character footage/dialogue.
+- Music: same unverified-licence review track (see above) — **preview only** until its source/licence is confirmed.
+- `public/media/bmu_garden.jpg` (from `images (1).jpg`) is prepped but unused.
+- Fonts: Archivo variable (`@fontsource-variable/archivo`, SIL OFL) for Concept 2; Montserrat remains for the skit.
