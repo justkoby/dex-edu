@@ -7,7 +7,7 @@ const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 /**
  * Dexterity end card (local frames). Stack stays above y≈1250 so the narrator's subtitles (bottom 1410) never collide:
- * logo -> headline -> supporting line -> WhatsApp action -> contacts. The disclaimer arrives after the narration.
+ * logo -> headline -> supporting line -> WhatsApp action -> contacts.
  */
 export const EndCard: React.FC = () => {
   const f = useCurrentFrame();
@@ -20,7 +20,6 @@ export const EndCard: React.FC = () => {
   const btn = spring({ frame: f - 88, fps, config: { damping: 10, stiffness: 150 } });
   const pulse = f > 112 ? 1 + Math.max(0, Math.sin((f - 112) / 7)) * 0.03 : 1;
   const info = ease(interpolate(f, [104, 128], [0, 1], clamp));
-  const note = interpolate(f, [150, 164], [0, 1], clamp);
   const bg = interpolate(f, [0, 36], [0, 1], clamp);
   return (
     <AbsoluteFill style={{ background: `linear-gradient(165deg, ${BRAND.navy} 0%, ${BRAND.navyDeep} 100%)`, fontFamily: BRAND.font, color: BRAND.white }}>
@@ -46,9 +45,6 @@ export const EndCard: React.FC = () => {
       <div style={{ position: "absolute", top: 1180, left: 0, right: 0, textAlign: "center", opacity: info, transform: `translateY(${(1 - info) * 20}px)` }}>
         <div style={{ fontSize: 46, fontWeight: 800, letterSpacing: 1 }}>{BRAND.phones[0]} <span style={{ color: BRAND.orange }}>·</span> {BRAND.phones[1]}</div>
         <div style={{ fontSize: 32, fontWeight: 500, marginTop: 6, opacity: 0.9 }}>{BRAND.websiteLabel}</div>
-      </div>
-      <div style={{ position: "absolute", top: 1430, left: 80, right: 80, textAlign: "center", fontSize: 24, fontWeight: 500, opacity: 0.7 * note }}>
-        Illustrative skit — Kofi and Ama are fictional characters.
       </div>
     </AbsoluteFill>
   );

@@ -2,7 +2,7 @@
 
 React + TypeScript + [Remotion](https://remotion.dev). Composition `Dexterity-Skit`, 1080×1920 @ 30 fps, 40.5 s.
 **Version 2** — real Ghanaian voice recordings (Kofi, Ama, narrator), beat-locked edit, improved call UI. See `docs/VOICE_MAPPING.md`, `docs/AUDIO_PROCESSING.md`, `ASSET_MANIFEST.md`.
-Illustrative skit with fictional characters (Kofi & Ama) — not a student testimonial.
+Skit with fictional characters (no on-screen disclaimer, by request).
 
 ```bash
 npm install
