@@ -41,6 +41,9 @@ for (const [s, o] of stills) ff("-i", src(s), "-q:v", "2", path.join(out, o));
 // Kofi avatar for the call UI: a frame of the real clip
 ff("-ss", "1.2", "-i", path.join(out, "kofi_call.mp4"), "-frames:v", "1", "-q:v", "2", path.join(out, "kofi_avatar.jpg"));
 
+// Music bed (review track — licence unverified, see ASSET_MANIFEST.md)
+ff("-i", path.join(root, "audio", "(Audio) Upbeat Background Music For Videos (No Copyright).m4a"), "-c:a", "aac", "-b:a", "192k", path.join(out, "music_bed.m4a"));
+
 copyFileSync(path.join(root, "Logo.svg"), path.join(root, "public", "logo.svg"));
 for (const w of [500, 700, 800, 900]) {
   const f = `montserrat-latin-${w}-normal.woff2`;

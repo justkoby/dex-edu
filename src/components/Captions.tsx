@@ -1,47 +1,47 @@
 import React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { BRAND } from "../config/brand";
 import type { Chunk } from "../config/captions";
 
 /**
- * Bold word-synced subtitles (absolute-frame driven). The block's bottom edge sits at `bottom`
- * px from the TOP of the 1920 frame -> default 1410, i.e. above the TikTok/IG UI zone (last 480 px).
+ * Word-synced subtitles in absolute frames. Calm by default: each phrase fades/slides up a few px; the spoken word
+ * turns orange (key phrases stay orange). Only `hero` chunks (the BUDAPEST?! moment) get a large slam.
+ * Block bottom = `bottom` px from the TOP of the 1920 frame (default 1410 -> clear of the TikTok/IG UI zone).
  */
-export const Captions: React.FC<{ chunks: Chunk[]; bottom?: number; tone?: "light" | "dark" }> = ({ chunks, bottom = 1410 }) => {
+export const Captions: React.FC<{ chunks: Chunk[]; bottom?: number }> = ({ chunks, bottom = 1410 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const idx = chunks.findIndex((c, i) => frame >= c.from && frame < (chunks[i + 1]?.from ?? c.to + 6));
-  if (idx < 0) return null;
-  const c = chunks[idx];
-  if (frame > c.to + 8) return null;
+  const c = chunks.find((x) => frame >= x.from && frame < x.to);
+  if (!c) return null;
   const local = frame - c.from;
-  const pop = spring({ frame: local, fps, config: { damping: 11, stiffness: 220, mass: 0.5 } });
-  const chars = c.words.map((w) => w.text).join(" ").length;
-  const size = Math.min(76, Math.floor(860 / Math.max(8, chars * 0.74)));
+  const outP = interpolate(frame, [c.to - 3, c.to], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const text = c.words.map((w) => w.text).join(" ");
+  const base = c.hero ? 150 : 70;
+  const size = c.hero ? Math.min(150, Math.floor(900 / (text.length * 0.8))) : Math.min(base, Math.floor(880 / Math.max(8, text.length * 0.7)));
+  const inP = Easing.out(Easing.cubic)(interpolate(local, [0, 5], [0, 1], { extrapolateRight: "clamp" }));
+  const slam = c.hero ? spring({ frame: local, fps, config: { damping: 9, stiffness: 260, mass: 0.6 } }) : 1;
+  const stroke = Math.round(size * 0.15);
   return (
     <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 1920 - bottom, pointerEvents: "none" }}>
       <div
         style={{
-          maxWidth: 880, textAlign: "center", fontFamily: BRAND.font, fontWeight: 900, fontSize: size,
-          lineHeight: 1.08, textTransform: "uppercase", letterSpacing: -1,
-          transform: `scale(${interpolate(pop, [0, 1], [0.7, 1])}) rotate(${interpolate(pop, [0, 1], [-2, 0])}deg)`,
-          opacity: interpolate(local, [0, 2], [0, 1], { extrapolateRight: "clamp" }),
+          maxWidth: 900, textAlign: "center", fontFamily: BRAND.font, fontWeight: 900, fontSize: size, lineHeight: 1.08,
+          textTransform: "uppercase", letterSpacing: -1, opacity: inP * outP,
+          transform: c.hero ? `scale(${interpolate(slam, [0, 1], [1.7, 1])}) rotate(${interpolate(slam, [0, 1], [-3, 0])}deg)` : `translateY(${(1 - inP) * 14}px)`,
         }}
       >
         {c.words.map((w, i) => {
-          const active = frame >= w.from && frame < w.to + 1;
           const spoken = frame >= w.from;
+          const active = spoken && frame < w.to;
+          const hot = w.accent || active || c.hero;
           return (
             <span
               key={i}
               style={{
-                display: "inline-block", marginRight: "0.4em",
-                color: active ? BRAND.orange : BRAND.white,
-                opacity: spoken ? 1 : 0.55,
-                transform: active ? "scale(1.08)" : "scale(1)",
-                WebkitTextStroke: `${Math.round(size * 0.16)}px ${BRAND.navyDeep}`,
-                paintOrder: "stroke fill",
-                textShadow: `0 ${Math.round(size * 0.07)}px 0 ${BRAND.navyDeep}, 0 8px 28px rgba(0,0,0,.45)`,
+                display: "inline-block", marginRight: "0.36em", color: hot ? BRAND.orange : BRAND.white,
+                opacity: spoken || w.accent ? 1 : 0.6,
+                WebkitTextStroke: `${stroke}px ${BRAND.navyDeep}`, paintOrder: "stroke fill",
+                textShadow: `0 ${Math.round(size * 0.06)}px 0 ${BRAND.navyDeep}, 0 8px 26px rgba(0,0,0,.4)`,
               }}
             >
               {w.text}

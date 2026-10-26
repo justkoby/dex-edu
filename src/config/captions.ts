@@ -1,76 +1,78 @@
-import { VOICE, sec } from "./timeline";
+import { CLIPS, ClipId, VOICE, sec } from "./timeline";
 
 export type Word = { text: string; from: number; to: number; accent?: boolean };
-export type Chunk = { words: Word[]; from: number; to: number };
+export type Chunk = { words: Word[]; from: number; to: number; hero?: boolean };
 
-const LINES = {
-  s1: "Chale Ama! Where you dey? We dey plan link up for East Legon this weekend.",
-  s2: "Kofi, East Legon ke? Chale, I dey Budapest oo!",
-  s3: "BUDAPEST?! As in Hungary? Ei! Since when?!",
-  s4: "Yes oo! There are schools here like International Business School and Budapest Metropolitan University. You should check them out!",
-  s5: "Thinking of studying abroad? Dexterity Educational Consult can help you explore your options and guide you through the application process.",
-  s6: "Your next chapter could start in Hungary. WhatsApp Dexterity today!",
-} as const;
+/** Key phrases highlighted in orange (matched on consecutive words, punctuation ignored). */
+const KEYPHRASES = [
+  ["east", "legon"], ["budapest"], ["hungary"], ["international", "business", "school"],
+  ["budapest", "metropolitan", "university"], ["dexterity", "educational", "consult"], ["whatsapp"], ["dexterity"],
+];
+const norm = (w: string) => w.toLowerCase().replace(/[^a-z]/g, "");
 
-const ACCENT = /^(chale|budapest|hungary|ei|dexterity|whatsapp|abroad|legon|oo)/i;
+function markAccents(words: Word[]) {
+  const n = words.map((w) => norm(w.text));
+  // longest phrases first
+  for (const k of [...KEYPHRASES].sort((a, b) => b.length - a.length))
+    for (let i = 0; i + k.length <= n.length; i++)
+      if (k.every((x, j) => n[i + j] === x)) for (let j = 0; j < k.length; j++) words[i + j].accent = true;
+}
 
 /**
- * Word timings are estimated, not forced-aligned: the clip duration is shared between words by
- * character count (+ a pause weight after punctuation). Good enough for a draft; replace with
- * forced-alignment output if you swap in a different voice.
+ * Word timing: each recorded phrase has measured start/end (from the audio envelope); words inside a phrase are
+ * spaced by character weight. Phrase boundaries are measured, word boundaries inside a phrase are estimated.
  */
-function timeWords(key: keyof typeof LINES): Word[] {
-  const raw = LINES[key].split(/\s+/);
-  const weight = (w: string) => w.replace(/[^\w]/g, "").length + 1.5 + (/[.?!,]$/.test(w) ? 2.5 : 0);
-  const total = raw.reduce((a, w) => a + weight(w), 0);
-  const v = VOICE[key];
-  let t = sec(v.start);
-  const span = sec(v.dur);
-  return raw.map((w) => {
-    const len = (weight(w) / total) * span;
-    const word = { text: w.replace(/^["“]|["”]$/g, ""), from: Math.round(t), to: Math.round(t + len), accent: ACCENT.test(w) };
-    t += len;
-    return word;
+function build(id: ClipId): Chunk[] {
+  const clip = CLIPS[id];
+  const base = VOICE[id].start;
+  const chunks: Chunk[] = [];
+  const all: Word[] = [];
+  const perPhrase: Word[][] = clip.phrases.map((p) => {
+    const raw = p.text.split(/\s+/);
+    const wt = raw.map((w) => norm(w).length + 1.2 + (/[.?!,]$/.test(w) ? 1.5 : 0));
+    const tot = wt.reduce((a, b) => a + b, 0);
+    let t = p.start;
+    const words = raw.map((w, i) => {
+      const len = ((p.end - p.start) * wt[i]) / tot;
+      const word: Word = { text: w, from: sec(base + t), to: sec(base + t + len) };
+      t += len;
+      return word;
+    });
+    all.push(...words);
+    return words;
   });
-}
-
-/** Group words into short on-screen chunks (max 3 words / 18 chars, break on punctuation). */
-function chunk(words: Word[]): Chunk[] {
-  const out: Chunk[] = [];
-  let cur: Word[] = [];
-  const flush = () => {
-    if (cur.length) out.push({ words: cur, from: cur[0].from, to: cur[cur.length - 1].to });
-    cur = [];
-  };
-  for (const w of words) {
-    const len = [...cur, w].map((x) => x.text).join(" ").length;
-    if (cur.length >= 3 || len > 20) flush();
-    cur.push(w);
-    if (/[.?!,]$/.test(w.text)) flush();
+  markAccents(all);
+  for (const words of perPhrase) {
+    let cur: Word[] = [];
+    const flush = () => {
+      if (cur.length) chunks.push({ words: cur, from: cur[0].from, to: cur[cur.length - 1].to });
+      cur = [];
+    };
+    for (const w of words) {
+      const len = [...cur, w].map((x) => x.text).join(" ").length;
+      if (cur.length >= 3 || len > 22) flush();
+      cur.push(w);
+      if (id === "s3_reaction" && cur.length === 1 && norm(w.text) === "budapest") flush(); // hero word on its own
+    }
+    flush();
   }
-  flush();
-  return out;
+  // keep chunks visible until the next one begins, but never through a real pause (>0.6 s)
+  chunks.forEach((c, i) => {
+    const next = chunks[i + 1];
+    c.to = next && next.from - c.to < 18 ? next.from : c.to + 6;
+  });
+  if (id === "s3_reaction") chunks[0].hero = true;
+  return chunks;
 }
 
-export const CAPTIONS: Record<keyof typeof LINES, Chunk[]> = {
-  s1: chunk(timeWords("s1")),
-  s2: chunk(timeWords("s2")),
-  s3: chunk(timeWords("s3")),
-  s4: chunk(timeWords("s4")),
-  s5: chunk(timeWords("s5")),
-  s6: chunk(timeWords("s6")),
+export const CAPTIONS: Record<ClipId, Chunk[]> = {
+  s1_call: build("s1_call"), s2_answer: build("s2_answer"), s3_reaction: build("s3_reaction"), s4_schools: build("s4_schools"),
+  s5a_intro: build("s5a_intro"), s5b_help: build("s5b_help"), s6_cta: build("s6_cta"),
 };
 
-/** Absolute frame at which a given word of a line starts, e.g. wordFrame("s4", "International"). */
-export function wordFrame(key: keyof typeof LINES, text: string): number {
-  const w = CAPTIONS[key].flatMap((c) => c.words).find((x) => x.text.toLowerCase().startsWith(text.toLowerCase()));
-  if (!w) throw new Error(`word ${text} not in ${key}`);
-  return w.from;
-}
-
-/** Absolute frame span of a word (first match), for cueing visuals to speech. */
-export function wordSpan(key: keyof typeof LINES, text: string): { from: number; to: number } {
-  const w = CAPTIONS[key].flatMap((c) => c.words).find((x) => x.text.toLowerCase().startsWith(text.toLowerCase()));
-  if (!w) throw new Error(`word ${text} not in ${key}`);
-  return { from: w.from, to: w.to };
+/** Absolute-frame span of a word (first match from `after` onward), for cueing visuals to speech. */
+export function wordSpan(id: ClipId, text: string, nth = 0): { from: number; to: number } {
+  const ws = CAPTIONS[id].flatMap((c) => c.words).filter((x) => norm(x.text) === norm(text));
+  if (!ws[nth]) throw new Error(`word ${text}#${nth} not in ${id}`);
+  return { from: ws[nth].from, to: ws[nth].to };
 }
