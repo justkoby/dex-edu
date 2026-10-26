@@ -25,12 +25,12 @@ export const SAFE = { top: 250, bottom: 480, side: 64 } as const;
 export const sec = (s: number) => Math.round(s * FPS);
 
 /**
- * Music: the existing 100 BPM review track. Its groove drops 12.19 s into the file; we start the file 3.0 s before the
+ * Music: the existing 100 BPM review track. Its groove drops 13.19 s into the file; we start the file 3.0 s before the
  * drop so the "BUDAPEST?" slam lands on it, and every cut below sits on the same 0.6 s beat grid.
  */
 export const BEAT = 0.6;
 export const DROP = 3.0;
-export const MUSIC_FILE_DROP = 12.19;
+export const MUSIC_FILE_DROP = 13.19; // measured: loudness jumps -12 -> -4 dB RMS at 13.2 s in the file
 export const beat = (n: number) => DROP + n * BEAT; // n=0 -> drop (3.0 s); n=-5 -> 0.0 s
 
 export const SC = {
