@@ -103,9 +103,14 @@ const bp = CLIPS.s2_answer.phrases[2]; // "Chale, I dey Budapest": "Budapest" is
 export const BUDAPEST_CUE = { t: V2 + bp.end - (bp.end - bp.start) * 0.39 };
 
 /** Part A: quiet intro bed (file t≈0). Fades in, ducks under speech, stops dead-smooth at the "Budapest" cue. */
-export const MUSIC_A = { from: 0.4, to: BUDAPEST_CUE.t + 0.4 };
+// Starts so the file is still in its quiet intro (first MUSIC_DROP s) when the cue arrives: the groove can only drop on the reveal.
+export const MUSIC_A = { from: Math.max(0.4, BUDAPEST_CUE.t - (MUSIC_DROP - 0.3)), to: BUDAPEST_CUE.t + 0.4 };
 export const musicGainA = (t: number) =>
   0.5 * smooth((t - MUSIC_A.from) / 1.5) * duckAt(t, 0.45) * (1 - smooth((t - BUDAPEST_CUE.t) / 0.3));
+
+/** Part A2: a soft, restarted intro bed under Kofi's reaction so the pause is tense, not dead; builds into the drop. */
+export const MUSIC_A2 = { from: C3 + 0.5, to: C4 + 0.25, fileStart: 3 };
+export const musicGainA2 = (t: number) => 0.3 * smooth((t - MUSIC_A2.from) / 1.2) * duckAt(t, 0.35) * (1 - smooth((t - C4) / 0.2));
 
 /** Part B: full groove from the drop at the reveal; louder over the montage, ducked under speech, fades at the end. */
 export const MUSIC_B = { from: C4, to: END };

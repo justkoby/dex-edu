@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, staticFile } from "remotion";
 import { BRAND } from "./config/brand";
 import { CAPTIONS } from "./config/captions";
-import { CLIPS, ClipId, MUSIC_A, MUSIC_B, MUSIC_DROP, SCENES, SFX, T, TOTAL_FRAMES, VOICE, musicGainA, musicGainB, sec, FPS } from "./config/timeline";
+import { CLIPS, ClipId, MUSIC_A, MUSIC_A2, MUSIC_B, MUSIC_DROP, SCENES, SFX, T, TOTAL_FRAMES, VOICE, musicGainA, musicGainA2, musicGainB, sec, FPS } from "./config/timeline";
 import { Captions } from "./components/Captions";
 import { Reveal } from "./components/Reveal";
 import { EndCard } from "./components/EndCard";
@@ -62,6 +62,9 @@ export const Skit: React.FC = () => {
       {/* Music: quiet bed until the "Budapest" cue, silence through the reaction, full groove drops on the reveal */}
       <Sequence from={sec(MUSIC_A.from)} durationInFrames={sec(MUSIC_A.to - MUSIC_A.from)}>
         <Audio src={music} startFrom={0} volume={(n) => musicGainA(n / FPS + MUSIC_A.from)} />
+      </Sequence>
+      <Sequence from={sec(MUSIC_A2.from)} durationInFrames={sec(MUSIC_A2.to - MUSIC_A2.from)}>
+        <Audio src={music} startFrom={sec(MUSIC_A2.fileStart)} volume={(n) => musicGainA2(n / FPS + MUSIC_A2.from)} />
       </Sequence>
       <Sequence from={sec(MUSIC_B.from)} durationInFrames={TOTAL_FRAMES - sec(MUSIC_B.from)}>
         <Audio src={music} startFrom={sec(MUSIC_DROP)} volume={(n) => musicGainB(n / FPS + MUSIC_B.from)} />

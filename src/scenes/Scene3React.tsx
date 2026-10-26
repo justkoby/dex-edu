@@ -5,7 +5,7 @@ import { NameChip } from "../components/Chips";
 import { shake } from "../components/Reveal";
 import { T, sec } from "../config/timeline";
 
-/** FALLBACK: no dedicated "surprised" clip — Kofi's call clip (later segment) with a controlled punch-in. */
+/** FALLBACK: no dedicated "surprised" clip — Kofi's call clip (5 s onward) with a controlled punch-in. */
 export const Scene3React: React.FC = () => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -20,7 +20,7 @@ export const Scene3React: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: "#000" }}>
       <AbsoluteFill style={{ filter: `brightness(${kick})` }}>
-        <CoverVideo src="media/kofi_call.mp4" startFrom={sec(6.5)} scale={scale} x={s1.x + s2.x} y={s1.y + s2.y} origin="50% 33%" />
+        <CoverVideo src="media/kofi_call.mp4" startFrom={sec(5)} scale={scale} x={s1.x + s2.x} y={s1.y + s2.y} origin="50% 33%" />
       </AbsoluteFill>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 38%, rgba(0,0,0,0) 40%, rgba(10,16,48,.7) 100%)" }} />
       <Scrim top={0.5} bottom={0.55} />

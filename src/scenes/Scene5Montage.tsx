@@ -22,7 +22,7 @@ const SHOTS: Shot[] = [
   { src: "media/ibs_students_a.mp4", beats: 3, kind: "wipe", from: 60, drift: -36, title: ["Study option", "International Business School (IBS), Budapest"] },
   { src: "media/bmu_campus.mp4", beats: 4, kind: "bars", from: 90, drift: 34, title: ["Study option", "Budapest Metropolitan University"] },
   { src: "media/ibs_group.mp4", beats: 3, kind: "circle", origin: [78, 30], from: 210, drift: -30, step: ["01", "Explore your options"] },
-  { src: "media/budapest_parliament.mp4", beats: 99, kind: "wipe", from: 110, drift: 28, scale: 1.05, step: ["02", "Application guidance"] },
+  { src: "media/budapest_parliament.mp4", beats: 99, kind: "wipe", from: 70, drift: 28, scale: 1.05, step: ["02", "Application guidance"] },
 ];
 
 const Step: React.FC<{ n: string; text: string }> = ({ n, text }) => {
@@ -61,7 +61,7 @@ export const Scene5Montage: React.FC = () => {
   const total = sec(SCENES.s5.to - SCENES.s5.from);
   let start = 0;
   const placed = SHOTS.map((s, i) => {
-    const len = i === SHOTS.length - 1 ? total - start : Math.round(s.beats * BEAT * 30);
+    const len = i === SHOTS.length - 1 ? total - start + 24 : Math.round(s.beats * BEAT * 30); // last shot runs on under the end-card wipe
     const o = { s, start, len };
     start += len;
     return o;

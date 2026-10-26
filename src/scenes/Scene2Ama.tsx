@@ -18,7 +18,7 @@ export const Scene2Ama: React.FC = () => {
         <KenBurns src="media/ama_wave.jpg" duration={len} from={1.02} to={1.12} origin="50% 30%" extra={{ scale: 1 + 0.06 * k }} />
         <Scrim />
         <Pip top={500} fromFrame={4}>
-          <CoverVideo src="media/kofi_call.mp4" startFrom={sec(2)} scale={1.4} origin="50% 40%" />
+          <CoverVideo src="media/kofi_call.mp4" startFrom={40} scale={1.4} origin="50% 40%" />
         </Pip>
       </AbsoluteFill>
       <NameChip name="Ama" place="Budapest, Hungary" delay={14} />

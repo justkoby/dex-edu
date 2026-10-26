@@ -40,13 +40,35 @@ Content below was identified from FFprobe + visual contact sheets, not filenames
 
 No footage was fabricated. Upscaling note: 720p clips are scaled ~2.7× to fill 1080×1920 (soft at full export).
 
-## Audio
+## Audio (V2)
 
-| File | What | Tool |
-|---|---|---|
-| `public/audio/s1…s6_*.mp3` | One file per dialogue line (silence-trimmed, loudness-normalised) | **Kokoro-82M** (open-source neural TTS, ONNX) via `scripts/gen_voices.py` |
-| `public/audio/music.mp3`, `sfx_*.mp3` | Original synthesised placeholder music bed (120 BPM) + SFX (ring, connect, whoosh, record scratch, impact, pop) | `scripts/gen_audio_fx.py` (numpy) |
+### Dialogue — real recordings (see `docs/VOICE_MAPPING.md` for the full table and confidence notes)
 
-Voices: Kofi `am_puck`, Ama `af_nicole`, Narrator `am_michael` — generic American-English voices.
-**They are not Ghanaian-accented and were not verified as such**; Pidgin lines ("dey", "oo") will sound approximate.
-Replace with proper VO / a licensed voice before publishing.
+| Scene | Speaker | Original | Processed copy |
+|---|---|---|---|
+| 1 | Kofi | `BUDAPEST-VID/speech audio files/WhatsApp Audio … 8.08.50 PM.mp4` | `public/audio/processed/kofi/s1_call.wav` |
+| 2 | Ama | `… WhatsApp Ptt … 8.34.17 PM.ogg` | `public/audio/processed/ama/s2_answer.wav` |
+| 3 | Kofi | `… 8.11.16 PM.mp4` (byte-different but sample-identical duplicate: `8.09.04 PM.mp4`) | `public/audio/processed/kofi/s3_reaction.wav` |
+| 4 | Ama | `… WhatsApp Ptt … 8.34.42 PM.ogg` | `public/audio/processed/ama/s4_schools.wav` |
+| 5 | Narrator (male) | `… 8.10.52 PM.mp4`, `… 8.10.46 PM.mp4` | `public/audio/processed/narrator/s5a_intro.wav`, `s5b_help.wav` |
+| 6 | Narrator (male) | `… 8.10.37 PM.mp4` | `public/audio/processed/narrator/s6_cta.wav` |
+
+Processing details and measurements: `docs/AUDIO_PROCESSING.md`. Originals are untouched.
+The Kokoro TTS files from V1 (`public/audio/s1_kofi.mp3` … `s6_narr.mp3`) remain in the repo for reference but are **not used** any more.
+
+### Music — `audio/(Audio) Upbeat Background Music For Videos (No Copyright).m4a`
+AAC 44.1 kHz stereo, 97 s, ≈100 BPM, −13.2 LUFS, no embedded metadata (no title, artist, licence or source URL).
+**Licence NOT verified.** "No Copyright" in a filename is not a licence, and nothing in the file or repo says who made it or on what terms it may be used.
+→ It is used **only as a temporary review track**. Before publishing: identify the original source and licence (or replace it with a licensed
+track / the original synthesised bed from `scripts/gen_audio_fx.py`). The edit is built around its tempo (reveal = the track's groove drop at 12.19 s;
+cuts snap to its 0.6 s beat grid), so a replacement at a different tempo needs `BEAT` / `MUSIC_DROP` in `src/config/timeline.ts` updated.
+
+### SFX (all original, synthesised with numpy — `scripts/gen_audio_fx.py`, `scripts/gen_sfx_v2.py`)
+ring (double-burst), call connect, UI tick, call disconnect, whooshes, record scratch, impact, title swish, soft end-card chime.
+
+## Visual verification notes
+- **IBS clip** (`Generated Video … 2_49PM.mp4`): the building signage reads "IBS – International Business School" → labelled IBS.
+- **Round white building** (`Drone_shot…mp4`): same building as `images.jpg`, whose facade sign reads "Budapest Metropolitan Egyetem" → labelled Budapest Metropolitan University.
+- **Statue / Parliament dome clips**: generic Budapest — labelled "Budapest, Hungary" only.
+- **Group/crowd clip** (`… 3_04PM.mp4`, 2nd half) and the `Garden_party` / `164735_LandinPage3` crowd photos: no signage, **not** labelled with a university.
+- East Legon images: still unverified, unused.
