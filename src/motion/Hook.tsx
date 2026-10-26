@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { CameraMotionBlur } from "@remotion/motion-blur";
-import { C, DROP, FPS, H, W, clamp, expo, inOut, sec, type } from "./tokens";
+import { C, DROP, H, W, clamp, expo, inOut, sec, type } from "./tokens";
 import { FitText, MaskLine } from "./ui";
 
 /** Geometry of the BUDA / PEST? slam, shared by the visible text and the clip-path that turns it into a window onto the map. */
@@ -70,56 +70,47 @@ const Grid: React.FC<{ shift: number }> = ({ shift }) => (
 export const Hook: React.FC = () => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const t = f / FPS;
   const slamF = f - sec(DROP);
-  const slam = spring({ frame: slamF, fps, config: { damping: 10, stiffness: 240, mass: 0.7 } });
-  const shakeA = slamF >= 0 ? Math.exp(-slamF / 5) : 0;
+  // clean slam: one controlled scale-down with a tiny settle, no distortion or colour split
+  const slam = spring({ frame: slamF, fps, config: { damping: 15, stiffness: 240, mass: 0.8 } });
+  const shakeA = slamF >= 0 ? Math.exp(-slamF / 4) : 0;
   const open = interpolate(f, [sec(WINDOW_START), sec(WINDOW_START) + 6], [0, 1], clamp);
-  const ghost = slamF >= 0 && slamF < 8 ? 1 - slamF / 8 : 0;
-  const stretch = slamF >= 0 ? interpolate(slamF, [0, 5], [1.22, 1], clamp) : 1;
-  const skew = slamF >= 0 ? interpolate(slamF, [0, 5], [-9, 0], clamp) : 0;
   const slamVisible = f >= sec(DROP);
-  const pre = t < DROP;
+  const pre = f < sec(DROP);
 
   return (
     <AbsoluteFill style={{ background: `radial-gradient(ellipse at 30% 40%, ${C.navy} 0%, ${C.navyDeep} 62%)` }}>
       <Grid shift={-f * 1.4} />
-      {/* pre-drop: rapid-fire lines (HTML text, rises out of masks) */}
+      {/* pre-drop: three beats of justified display type, each rising out of a mask; "WAS…" holds until the drop */}
       {pre && (
         <AbsoluteFill style={{ padding: "0 60px", color: C.white }}>
           <div style={{ position: "absolute", left: 60, top: 560 }}>
-            <MaskLine at={sec(0.6)} out={sec(1.15)}><FitText text="What if" width={960} size={420} fill={C.white} /></MaskLine>
+            <MaskLine at={sec(0.6)} out={sec(1.1)} dur={16}><FitText text="What if" width={960} size={420} fill={C.white} /></MaskLine>
           </div>
           <div style={{ position: "absolute", left: 60, top: 470 }}>
-            <MaskLine at={sec(1.2)} out={sec(2.05)}><FitText text="Your next" width={960} size={300} fill={C.white} /></MaskLine>
-            <MaskLine at={sec(1.3)} out={sec(2.05)} style={{ marginTop: 22 }}><FitText text="Stop" width={960} size={560} fill={C.orange} /></MaskLine>
+            <MaskLine at={sec(1.2)} out={sec(2.25)} dur={16}><FitText text="Your next" width={960} size={300} fill={C.white} /></MaskLine>
+            <MaskLine at={sec(1.32)} out={sec(2.25)} dur={16} style={{ marginTop: 22 }}><FitText text="Stop" width={960} size={560} fill={C.orange} /></MaskLine>
           </div>
           <div style={{ position: "absolute", left: 60, top: 560 }}>
-            <MaskLine at={sec(2.1)} out={sec(2.92)}><FitText text="Was…" width={960} size={420} fill={C.white} /></MaskLine>
+            <MaskLine at={sec(2.4)} dur={12}><FitText text="Was…" width={960} size={420} fill={C.white} /></MaskLine>
           </div>
         </AbsoluteFill>
       )}
       {/* the slam */}
       {slamVisible && (
-        <CameraMotionBlur shutterAngle={140} samples={6}>
+        <CameraMotionBlur shutterAngle={120} samples={6}>
           <svg width={W} height={H} style={{ position: "absolute", inset: 0, opacity: 1 - open }}>
-            <g transform={`translate(${shakeA * 14 * Math.sin(f * 2.1)} ${shakeA * 10 * Math.cos(f * 2.7)})`}>
-              {ghost > 0 && (
-                <g transform={`translate(${-22 * ghost} 0) translate(${SLAM.ox} ${SLAM.oy}) scale(${stretch * (1 + 0.08 * ghost)} 1) translate(${-SLAM.ox} ${-SLAM.oy})`} opacity={0.55 * ghost}>
-                  <SlamLines fill1={C.orange} fill2={C.white} />
-                </g>
-              )}
-              <g transform={`translate(${SLAM.ox} ${SLAM.oy}) skewX(${skew}) scale(${stretch * (0.82 + 0.18 * slam)} ${0.82 + 0.18 * slam}) translate(${-SLAM.ox} ${-SLAM.oy})`} opacity={Math.min(1, slam * 3)}>
+            <g transform={`translate(${shakeA * 8 * Math.sin(f * 2.1)} ${shakeA * 6 * Math.cos(f * 2.7)})`}>
+              <g transform={`translate(${SLAM.ox} ${SLAM.oy}) scale(${1.14 - 0.14 * slam}) translate(${-SLAM.ox} ${-SLAM.oy})`}>
                 <SlamLines fill1={C.white} fill2={C.orange} />
               </g>
             </g>
           </svg>
         </CameraMotionBlur>
       )}
-      {/* underline + label that sit under the slam */}
       {slamVisible && (
-        <div style={{ position: "absolute", left: 56, top: 300, opacity: (1 - open) * interpolate(slamF, [6, 18], [0, 1], clamp), transform: `translateY(${(1 - expo(interpolate(slamF, [6, 20], [0, 1], clamp))) * 20}px)` }}>
-          <div style={{ ...type(30, 100, 700), color: C.white, letterSpacing: 6, display: "flex", alignItems: "center", gap: 18 }}>
+        <div style={{ position: "absolute", left: 60, top: 300, opacity: (1 - open) * interpolate(slamF, [8, 20], [0, 1], clamp), transform: `translateX(${(1 - expo(interpolate(slamF, [8, 24], [0, 1], clamp))) * -30}px)` }}>
+          <div style={{ ...type(30, 100, 800), color: C.white, letterSpacing: 6, display: "flex", alignItems: "center", gap: 18 }}>
             <span style={{ display: "inline-block", width: 90, height: 6, background: C.orange }} /> STUDY IN HUNGARY
           </div>
         </div>

@@ -3,8 +3,8 @@ import { AbsoluteFill, Img, OffthreadVideo, staticFile, useCurrentFrame, interpo
 
 type Tf = { scale?: number; x?: number; y?: number; origin?: string };
 
-export const CoverVideo: React.FC<{ src: string; startFrom?: number } & Tf> = ({
-  src, startFrom = 0, scale = 1, x = 0, y = 0, origin = "50% 50%",
+export const CoverVideo: React.FC<{ src: string; startFrom?: number; position?: string } & Tf> = ({
+  src, startFrom = 0, scale = 1, x = 0, y = 0, origin = "50% 50%", position = "50% 50%",
 }) => (
   <AbsoluteFill style={{ overflow: "hidden" }}>
     <OffthreadVideo
@@ -12,7 +12,7 @@ export const CoverVideo: React.FC<{ src: string; startFrom?: number } & Tf> = ({
       startFrom={startFrom}
       muted
       style={{
-        width: "100%", height: "100%", objectFit: "cover",
+        width: "100%", height: "100%", objectFit: "cover", objectPosition: position,
         transform: `translate(${x}px, ${y}px) scale(${scale})`, transformOrigin: origin,
       }}
     />

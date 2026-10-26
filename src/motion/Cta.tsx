@@ -1,11 +1,12 @@
 import React from "react";
-import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { C, clamp, expo, type } from "./tokens";
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { C, clamp, expo, inOut, type, wipeClip } from "./tokens";
+import { DexterityLogo } from "./DexterityLogo";
 import { FitText, MaskLine } from "./ui";
 
-const FW = 940;
+const FW = 952;
 
-/** Simple chat-bubble-with-handset glyph (generic; not the WhatsApp trademark). */
+/** Generic chat-bubble-with-handset glyph (not the WhatsApp trademark). */
 const ChatIcon: React.FC<{ size: number }> = ({ size }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
     <path d="M16 3.5a12.5 12.5 0 0 0-10.7 19L3.8 28.2l5.9-1.5A12.5 12.5 0 1 0 16 3.5z" stroke="#fff" strokeWidth="2.4" strokeLinejoin="round" />
@@ -13,61 +14,52 @@ const ChatIcon: React.FC<{ size: number }> = ({ size }) => (
   </svg>
 );
 
-/** Scene 5 — Dexterity end card. Everything sits between y=250 and y=1440 (platform safe area). */
+/**
+ * Scene 5 — end card. Reading order: logo -> message -> WhatsApp action -> contacts. Everything sits between y=270 and
+ * y=1400 (platform safe area); the stack is built so the last element lands ~4.3 s in and the card then holds.
+ */
 export const Cta: React.FC = () => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const bg = expo(interpolate(f, [0, 22], [0, 1], clamp));
-  const plate = spring({ frame: f - 8, fps, config: { damping: 14, stiffness: 110, mass: 0.9 } });
-  const wipe = expo(interpolate(f, [16, 40], [0, 1], clamp));
-  const shine = interpolate(f, [30, 62], [-0.3, 1.3], clamp);
-  const border = expo(interpolate(f, [22, 60], [0, 1], clamp));
-  const btn = spring({ frame: f - 84, fps, config: { damping: 9, stiffness: 150 } });
-  const pulse = f > 108 ? 1 + Math.max(0, Math.sin((f - 108) / 8)) * 0.025 : 1;
-  const arrow = f > 100 ? (Math.sin((f - 100) / 7) + 1) * 8 : 0;
-  const info = expo(interpolate(f, [104, 128], [0, 1], clamp));
+  const wipe = inOut(interpolate(f, [0, 16], [0, 1], clamp));
+  const ring = expo(interpolate(f, [4, 50], [0, 1], clamp));
+  const btn = spring({ frame: f - 100, fps, config: { damping: 10, stiffness: 150 } });
+  const pulse = f > 130 ? 1 + Math.max(0, Math.sin((f - 130) / 9)) * 0.02 : 1;
+  const arrow = f > 118 ? (Math.sin((f - 118) / 8) + 1) * 7 : 0;
+  const info = expo(interpolate(f, [124, 148], [0, 1], clamp));
+  const site = expo(interpolate(f, [134, 156], [0, 1], clamp));
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(170deg, ${C.navy} 0%, ${C.navyDeep} 100%)`, overflow: "hidden" }}>
-      {/* circles borrowed from the logo's rounded D */}
-      <div style={{ position: "absolute", right: -300, top: 40, width: 800, height: 800, borderRadius: "50%", border: `72px solid ${C.orange}`, opacity: 0.16 * bg, transform: `scale(${0.7 + 0.3 * bg}) rotate(${f * 0.1}deg)` }} />
-      <div style={{ position: "absolute", left: -240, bottom: 380, width: 560, height: 560, borderRadius: "50%", border: `52px solid ${C.white}`, opacity: 0.05 * bg }} />
+    <AbsoluteFill style={{ background: `linear-gradient(170deg, ${C.navy} 0%, ${C.navyDeep} 100%)`, clipPath: wipeClip(wipe, 10), overflow: "hidden" }}>
+      <div style={{ position: "absolute", right: -300, top: 60, width: 820, height: 820, borderRadius: "50%", border: `74px solid ${C.orange}`, opacity: 0.14 * ring, transform: `scale(${0.75 + 0.25 * ring}) rotate(${f * 0.08}deg)` }} />
+      <div style={{ position: "absolute", left: -260, bottom: 320, width: 560, height: 560, borderRadius: "50%", border: `52px solid ${C.white}`, opacity: 0.045 * ring }} />
 
-      {/* logo plate */}
-      <div
-        style={{
-          position: "absolute", left: 190, top: 270, width: 700, height: 380, background: C.offWhite, overflow: "hidden", boxShadow: "0 36px 80px rgba(0,0,0,.4)",
-          transform: `scale(${interpolate(plate, [0, 1], [0.72, 1])}) translateY(${interpolate(plate, [0, 1], [50, 0])}px)`, opacity: Math.min(1, plate * 2),
-        }}
-      >
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", clipPath: `inset(0 ${(1 - wipe) * 100}% 0 0)` }}>
-          <Img src={staticFile("logo.svg")} style={{ width: 470, height: "auto" }} />
-        </div>
-        <div style={{ position: "absolute", top: -40, bottom: -40, width: 110, left: `${shine * 100}%`, transform: "skewX(-18deg)", background: "linear-gradient(90deg, rgba(255,255,255,0), rgba(243,122,32,.2), rgba(255,255,255,0))" }} />
-        <svg width="700" height="380" style={{ position: "absolute", inset: 0 }}>
-          <rect x="9" y="9" width="682" height="362" fill="none" stroke={C.orange} strokeWidth="5" strokeDasharray="2088" strokeDashoffset={2088 * (1 - border)} />
-        </svg>
+      {/* 1 — logo, directly on the navy field */}
+      <div style={{ position: "absolute", left: (1080 - 600) / 2, top: 290 }}>
+        <DexterityLogo width={600} at={10} />
       </div>
 
-      <div style={{ position: "absolute", left: 64, top: 680, width: FW }}>
-        <MaskLine at={30} dur={14}><div style={{ ...type(30, 100, 800), color: C.orange, letterSpacing: 6 }}>STUDY OPPORTUNITIES IN HUNGARY</div></MaskLine>
-        <div style={{ marginTop: 26 }}>
-          <MaskLine at={38} dur={16}><FitText text="Let’s get you" width={FW} size={205} fill={C.white} /></MaskLine>
-          <MaskLine at={46} dur={16} style={{ marginTop: 14 }}><FitText text="Started" width={FW} size={290} fill={C.white} /></MaskLine>
+      {/* 2 — message */}
+      <div style={{ position: "absolute", left: 64, top: 720, width: FW }}>
+        <MaskLine at={62} dur={14}><div style={{ ...type(30, 100, 800), color: C.orange, letterSpacing: 6 }}>STUDY OPPORTUNITIES IN HUNGARY</div></MaskLine>
+        <div style={{ marginTop: 28 }}>
+          <MaskLine at={70} dur={16}><FitText text="Let’s get you" width={FW} size={170} fill={C.white} /></MaskLine>
+          <MaskLine at={78} dur={16} style={{ marginTop: 12 }}><FitText text="Started" width={FW} size={250} fill={C.white} /></MaskLine>
         </div>
       </div>
 
-      {/* primary action */}
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1130, display: "flex", justifyContent: "center", transform: `scale(${interpolate(btn, [0, 1], [0.6, 1]) * pulse})`, opacity: Math.min(1, btn * 1.6) }}>
-        <div style={{ background: C.orange, color: C.white, display: "flex", alignItems: "center", gap: 24, padding: "30px 54px", borderRadius: 999, boxShadow: "0 22px 50px rgba(243,122,32,.5)", ...type(54, 100, 800), letterSpacing: 1.5, lineHeight: 1 }}>
-          <ChatIcon size={64} />
+      {/* 3 — primary action */}
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1112, display: "flex", justifyContent: "center", transform: `scale(${interpolate(btn, [0, 1], [0.6, 1]) * pulse})`, opacity: Math.min(1, btn * 1.6) }}>
+        <div style={{ background: C.orange, color: C.white, display: "flex", alignItems: "center", gap: 22, padding: "30px 52px", borderRadius: 999, boxShadow: "0 22px 50px rgba(243,122,32,.45)", ...type(52, 100, 800), letterSpacing: 1.5, lineHeight: 1 }}>
+          <ChatIcon size={62} />
           ENQUIRE ON WHATSAPP
           <span style={{ display: "inline-block", transform: `translateX(${arrow}px)` }}>→</span>
         </div>
       </div>
 
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1296, textAlign: "center", color: C.white, opacity: info, transform: `translateY(${(1 - info) * 20}px)` }}>
-        <div style={{ ...type(50, 100, 800), letterSpacing: 1, lineHeight: 1.1 }}>0244489721 <span style={{ color: C.orange }}>·</span> 0303984034</div>
-        <div style={{ ...type(34, 100, 600), letterSpacing: 1, textTransform: "none", marginTop: 8, opacity: 0.9 }}>dexterityedutravel.com</div>
+      {/* 4 — contacts */}
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1296, textAlign: "center", color: C.white }}>
+        <div style={{ ...type(50, 100, 800), letterSpacing: 1, lineHeight: 1.1, opacity: info, transform: `translateY(${(1 - info) * 18}px)` }}>0244489721 <span style={{ color: C.orange }}>·</span> 0303984034</div>
+        <div style={{ ...type(34, 100, 600), letterSpacing: 1, textTransform: "none", marginTop: 12, opacity: 0.92 * site, transform: `translateY(${(1 - site) * 14}px)` }}>dexterityedutravel.com</div>
       </div>
     </AbsoluteFill>
   );

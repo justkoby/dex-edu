@@ -34,14 +34,34 @@ export const MUSIC_FILE_DROP = 13.19; // measured: loudness jumps -12 -> -4 dB R
 export const beat = (n: number) => DROP + n * BEAT; // n=0 -> drop (3.0 s); n=-5 -> 0.0 s
 
 export const SC = {
-  hook: { from: 0, to: beat(2) }, // 0 – 4.2
-  route: { from: beat(2), to: beat(10) }, // 4.2 – 9.0
-  uni1: { from: beat(10), to: beat(18) }, // 9.0 – 13.8
-  uni2: { from: beat(18), to: beat(26) }, // 13.8 – 18.6
-  msg: { from: beat(26), to: beat(35) }, // 18.6 – 24.0
-  cta: { from: beat(35), to: beat(45) }, // 24.0 – 30.0
+  hook: { from: 0, to: beat(2) }, // 0.0 – 4.2   typography -> letters open onto the map
+  route: { from: beat(2), to: beat(9) }, // 4.2 – 8.4   Accra -> Budapest, marker opens onto footage
+  ibs: { from: beat(9), to: beat(17) }, // 8.4 – 13.2  editorial photo grid
+  bmu: { from: beat(17), to: beat(25) }, // 13.2 – 18.0 cinematic full-bleed
+  msg: { from: beat(25), to: beat(34) }, // 18.0 – 23.4 kinetic typography
+  cta: { from: beat(34), to: beat(46) }, // 23.4 – 30.6 end card (7.2 s incl. a ~4 s read/hold)
 } as const;
-export const TOTAL = sec(30);
+export const TOTAL = sec(30.6);
+
+/** Editorial type scale (Archivo, wdth 62 for display / 100 for labels). Everything else derives from these. */
+export const T = {
+  label: { size: 28, wdth: 100, weight: 800, tracking: 6 },
+  caption: { size: 24, wdth: 100, weight: 600, tracking: 4 },
+} as const;
+
+/** One directional language: every wipe travels left -> right (the direction of the flight). Slanted leading edge. */
+export const wipeClip = (p: number, slant = 9) => {
+  const x = p * (100 + slant);
+  return `polygon(0 0, ${x}% 0, ${x - slant}% 100%, 0 100%)`;
+};
+
+/** Shared, deliberately light grade so Parliament, IBS and BMU footage sit in one world. */
+export const GRADE = {
+  parliament: "contrast(1.05) saturate(1.02) brightness(0.98)",
+  ibs: "contrast(1.05) saturate(1.0) brightness(0.99)",
+  bmu: "contrast(1.07) saturate(1.12) brightness(0.96)",
+  statue: "contrast(1.05) saturate(1.1) brightness(1.04)",
+} as const;
 
 export const expo = Easing.bezier(0.16, 1, 0.3, 1);
 export const inOut = Easing.bezier(0.77, 0, 0.18, 1);
