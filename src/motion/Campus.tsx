@@ -9,7 +9,7 @@ import { DrawLine, FitText, MaskLine, PinIcon } from "./ui";
 /** IBS hero window (the dominant panel of the editorial grid). */
 const HERO = { x: 64, y: 300, w: 952, h: 640 };
 const IBS_FROM = 20; // IBS clip frame at the scene's first frame; it plays on into the BMU scene so the match cut is exact
-const IBS_POS = "24% 50%"; // object-position: shows the IBS signage + door rather than the middle of the bench
+const IBS_POS = "28% 50%"; // object-position: keeps the IBS signage + door in the full-bleed crop
 
 const insetFor = (p: number) => {
   const top = HERO.y * p, left = HERO.x * p, right = HERO.x * p, bottom = (H - HERO.y - HERO.h) * p; // p = 1 -> hero window, 0 -> full-bleed
@@ -49,7 +49,9 @@ export const IbsGrid: React.FC<{ duration: number; domeElapsed: number }> = ({ d
           <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(15,23,71,.4), rgba(15,23,71,0) 30%, rgba(15,23,71,0) 62%, rgba(15,23,71,.55))" }} />
         </AbsoluteFill>
         <AbsoluteFill style={{ clipPath: wipeClip(wipe, 12), filter: GRADE.ibs }}>
-          <CoverVideo src="media/ibs_students_a.mp4" startFrom={IBS_FROM} position={IBS_POS} scale={1.08 + 0.06 * p} x={22 * (0.5 - p)} />
+          <div style={{ position: "absolute", left: HERO.x * win, right: HERO.x * win, top: HERO.y * win, bottom: (H - HERO.y - HERO.h) * win, overflow: "hidden" }}>
+            <CoverVideo src="media/ibs_students_a.mp4" startFrom={IBS_FROM} position={IBS_POS} scale={1.02 + 0.07 * p} />
+          </div>
         </AbsoluteFill>
         {/* bottom shade so the name stays legible where it overlaps the panel */}
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(15,23,71,0) 52%, rgba(15,23,71,.82) 100%)", opacity: win }} />
@@ -58,22 +60,16 @@ export const IbsGrid: React.FC<{ duration: number; domeElapsed: number }> = ({ d
 
       {/* grid furniture — fades/slides away to the right as the panel expands */}
       <AbsoluteFill style={{ opacity: 1 - exit, transform: `translateX(${slideOut}px)` }}>
-        {/* orange accent: tab on the hero's top-left + rule above the label column */}
-        <div style={{ position: "absolute", left: HERO.x, top: HERO.y - 52, height: 52, display: "flex", alignItems: "center", gap: 14, opacity: wipe }}>
-          <div style={{ width: 52, height: 52, background: C.orange }} />
-          <div style={{ ...type(30, 100, 800), color: C.white, letterSpacing: 6 }}>IBS · BUDAPEST</div>
-        </div>
+        <div style={{ position: "absolute", left: HERO.x - 14, top: HERO.y - 14, width: 52, height: 52, background: C.orange, opacity: wipe }} />
         <div style={{ position: "absolute", left: HERO.x, top: 774, width: HERO.w }}>
           <MaskLine at={34} dur={16}><FitText text="International" width={HERO.w} size={150} fill={C.white} /></MaskLine>
           <MaskLine at={40} dur={16} style={{ marginTop: 12 }}><FitText text="Business School" width={HERO.w} size={136} fill={C.white} /></MaskLine>
         </div>
-        <DrawLine at={50} length={360} thickness={6} style={{ left: HERO.x, top: 1056 }} />
-        <div style={{ position: "absolute", left: HERO.x, top: 1086, width: 360 }}>
-          <MaskLine at={52} dur={14}>
-            <div style={{ ...type(34, 100, 800), color: C.white, letterSpacing: 4, lineHeight: 1.15 }}>INTERNATIONAL<br />BUSINESS SCHOOL</div>
-          </MaskLine>
-          <MaskLine at={58} dur={14} style={{ marginTop: 20 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, ...type(26, 100, 700), color: C.orange, letterSpacing: 4 }}><PinIcon size={30} />BUDAPEST, HUNGARY</div>
+        <DrawLine at={50} length={360} thickness={6} style={{ left: HERO.x, top: 1060 }} />
+        <div style={{ position: "absolute", left: HERO.x, top: 1092, width: 360 }}>
+          <MaskLine at={52} dur={14}><FitText text="IBS" width={360} size={230} fill={C.orange} /></MaskLine>
+          <MaskLine at={60} dur={14} style={{ marginTop: 26 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, ...type(26, 100, 800), color: C.white, letterSpacing: 4 }}><PinIcon size={30} />BUDAPEST, HUNGARY</div>
           </MaskLine>
         </div>
         {/* second verified view: wide facade photograph, masked in from the bottom, drifting against the hero */}
@@ -108,7 +104,7 @@ export const BmuCinematic: React.FC<{ duration: number; ibsElapsed: number }> = 
     <AbsoluteFill style={{ background: C.navyDeep }}>
       {/* match cut: the IBS frame carries on from the previous scene */}
       <AbsoluteFill style={{ filter: GRADE.ibs }}>
-        <CoverVideo src="media/ibs_students_a.mp4" startFrom={IBS_FROM + ibsElapsed} position={IBS_POS} scale={1.08 + 0.06} x={-11} />
+        <CoverVideo src="media/ibs_students_a.mp4" startFrom={IBS_FROM + ibsElapsed} position={IBS_POS} scale={1.09} />
       </AbsoluteFill>
       <AbsoluteFill style={{ clipPath: wipeClip(wipe, 14), filter: GRADE.bmu }}>
         <CoverVideo src="media/bmu_campus.mp4" startFrom={20} scale={1.1 + 0.12 * p} x={-34 * p} origin="50% 55%" />
