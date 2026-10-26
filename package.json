@@ -1,0 +1,25 @@
+{
+  "name": "dex-edu-skit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dexterity Educational Consult — TikTok skit (Remotion)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "prep": "node scripts/prep-media.mjs",
+    "render:draft": "remotion render src/index.ts Dexterity-Skit out/dexterity-skit-preview.mp4 --scale=0.6666666666666666 --crf=24 --concurrency=4",
+    "render:full": "remotion render src/index.ts Dexterity-Skit out/dexterity-skit-full.mp4 --crf=18 --concurrency=4"
+  },
+  "dependencies": {
+    "@fontsource/montserrat": "^5.3.0",
+    "@remotion/cli": "^4.0.250",
+    "@remotion/transitions": "^4.0.250",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.250"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.31",
+    "typescript": "^5.6.3"
+  }
+}

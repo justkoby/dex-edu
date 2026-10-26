@@ -1,0 +1,32 @@
+{
+ "s1_kofi": {
+  "voice": "am_puck",
+  "seconds": 4.352,
+  "text": "Chale Ama! Where you dey? We dey plan link up for East Legon this weekend."
+ },
+ "s2_ama": {
+  "voice": "af_nicole",
+  "seconds": 5.035,
+  "text": "Kofi, East Legon keh? Chale, I dey Budapest oo!"
+ },
+ "s3_kofi": {
+  "voice": "am_puck",
+  "seconds": 2.24,
+  "text": "BUDAPEST?! As in Hungary? Ei! Since when?!"
+ },
+ "s4_ama": {
+  "voice": "af_nicole",
+  "seconds": 11.136,
+  "text": "Yes oo! There are schools here like International Business School and Budapest Metropolitan University. You should check them out!"
+ },
+ "s5_narr": {
+  "voice": "am_michael",
+  "seconds": 9.045,
+  "text": "Thinking of studying abroad? Dexterity Educational Consult can help you explore your options and guide you through the application process."
+ },
+ "s6_narr": {
+  "voice": "am_michael",
+  "seconds": 4.181,
+  "text": "Your next chapter could start in Hungary. WhatsApp Dexterity today!"
+ }
+}

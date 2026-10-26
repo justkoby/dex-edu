@@ -1,0 +1,7 @@
+node_modules/
+out/
+.remotion/
+public/media/
+public/fonts/
+public/logo.svg
+.DS_Store
