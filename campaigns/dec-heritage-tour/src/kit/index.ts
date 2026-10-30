@@ -13,3 +13,7 @@ export * from './Campaign';
 export * from './Subtitles';
 export * from './LocationPin';
 export * from './EndCardV3';
+export * from './chat/Chat';
+export * from './chat/LocationCard';
+export * from './map/RouteMap';
+export * from './cta/EndCardV4';
