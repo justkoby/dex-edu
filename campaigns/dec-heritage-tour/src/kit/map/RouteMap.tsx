@@ -107,7 +107,7 @@ export const routeCamera = (t: number, k: { show: number; depart: number; arrive
   let cam = to(country, follow, expoInOut(prog(t, k.show + 0.5, k.depart + 0.6)));
   const end = routeAt(1); const settle: MapCam = { lon: end.ll[0], lat: end.ll[1] + 0.22, zoom: 4.2 };
   cam = to(cam, settle, expoInOut(prog(t, k.arrive - 0.3, k.dive)));
-  const dive: MapCam = { lon: end.ll[0], lat: end.ll[1] + 0.05, zoom: 60 };
+  const dive: MapCam = { lon: end.ll[0], lat: end.ll[1] + 0.0016, zoom: 60 };   // centre on the pin head so the reveal opens mid-frame
   cam = to(cam, dive, Math.pow(prog(t, k.dive, k.diveEnd), 2.2));
   return { cam, f, bus };
 };

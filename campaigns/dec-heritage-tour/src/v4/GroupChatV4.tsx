@@ -25,7 +25,7 @@ const K = { tap: 6.0, expand: 6.05, expandEnd: 6.65, shrinkA: 9.95, shrinkAEnd: 
 const CTA_RECT = { x: 48, y: 290, w: 984, h: 1150 };
 const lerpRect = (a: { x: number; y: number; w: number; h: number }, b: typeof a, u: number) => ({ x: lerp(a.x, b.x, u), y: lerp(a.y, b.y, u), w: lerp(a.w, b.w, u), h: lerp(a.h, b.h, u) });
 const FULL = { x: 0, y: 0, w: 1080, h: 1920 };
-const ACCRA: [number, number] = [-0.187, 5.6037]; const CAPE: [number, number] = [-1.2466, 5.1053];
+const ACCRA: [number, number] = [-0.187, 5.6037]; const CAPE: [number, number] = [-1.242355, 5.10444];   // pin sits on the route end (Cape Coast)
 
 /** Plays a prepared V4 clip from its file start at `from` seconds. */
 const Clip: React.FC<{ id: string; from: number; dur: number; style?: React.CSSProperties }> = ({ id, from, dur, style }) => {
