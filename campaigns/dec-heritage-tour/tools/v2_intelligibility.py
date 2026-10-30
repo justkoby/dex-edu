@@ -16,7 +16,7 @@ def wer(ref, hyp):
     return d[-1, -1] / max(1, len(ref))
 res = []
 for v in T['vo']:
-    seg = x[int((v['at']-0.1)*16000):int((v['end']+0.15)*16000)]
+    seg = x[int((v['at']-0.1)*16000):int((v['end']+0.05)*16000)]
     s = rec.create_stream(); s.accept_waveform(16000, seg); rec.decode_stream(s); hyp = s.result.text.strip()
     ref = ph[v['id']]['heard']; e = wer(w(ref), w(hyp)); res.append(e)
     print(f"{v['id']:12s} WER vs isolated {e*100:5.1f}% | mix: {hyp}")

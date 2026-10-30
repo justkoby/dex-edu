@@ -3,9 +3,10 @@
 Edit META below for categories / suggested use / licence notes; technical fields come from ffprobe."""
 import json, os, subprocess
 root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-UNV = 'Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed.'
+PEX = 'Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people.'
+UNV = PEX
 AI = 'AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider.'
-SR = 'Screen recording of third-party footage (player UI visible) – ' + UNV
+SR = 'Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. ' + PEX
 META = {
  'videos for tour/Woman_walking_with_suitcase_at_8597bc26_1080p.mp4': ('Airports & travel', 'Hero arrival shot, Accra airport at night', AI),
  'videos for tour/Woman_walking_through_airport_te…_66bbda25_1080p.mp4': ('Airports & travel', 'Terminal/suitcase B-roll (signage is AI text – keep tight)', AI),
@@ -19,17 +20,17 @@ META = {
  'videos for tour/Recording 2026-10-30 003821.mp4': ('Heritage & culture', 'Drummers; stylised/crushed after crop. EXCLUDED from v1; get a clean original', SR + ' Identifiable people.'),
  'videos for tour/Recording 2026-10-30 003912.mp4': ('Beaches & resorts', 'Palms, umbrella, loungers. Used in draft v1', SR),
  'videos for tour/Recording 2026-10-30 004023.mp4': ('Ghana destinations', 'Tuk-tuk street scene; blown sky after crop. EXCLUDED from v1', SR + ' Identifiable people.'),
- 'videos for tour/18102810-uhd_3840_2160_30fps.mp4': ('Ghana destinations', 'Roadside coconut seller (4K). Excluded: head cropped at 9:16 + visible phone number on sign', 'Stock, ID suggests Pexels – ' + UNV + ' Identifiable person.'),
- 'videos for tour/12716487_2560_1440_24fps.mp4': ('Ghana destinations', 'Accra interchange, overcast. Unused (flat grey sky)', 'Stock, ID suggests Pexels – ' + UNV),
- 'videos for tour/9694500-hd_1920_1080_24fps.mp4': ('Beaches & resorts', 'Fishing beach with canoes. EXCLUDED from v1 (hazy sky, poor after crop)', 'Stock, ID suggests Pexels – ' + UNV),
- 'videos for tour/6174521-hd_1080_1920_30fps.mp4': ('Student & lifestyle', 'Dancer in patterned top. Dark source (720p). Used briefly in v1', 'Stock, ID suggests Pexels – ' + UNV + ' Identifiable people.'),
- 'videos for tour/6193112-hd_1080_1920_30fps.mp4': ('Student & lifestyle', 'Friends dancing, African prints. Dark; needs lift', 'Stock, ID suggests Pexels – ' + UNV + ' Identifiable people.'),
- 'videos for tour/6193113-hd_1080_1920_30fps.mp4': ('Student & lifestyle', 'Friends dancing, African prints. Dark; needs lift', 'Stock, ID suggests Pexels – ' + UNV + ' Identifiable people.'),
- 'audio/(Audio) Upbeat Background Music For Videos (No Copyright).m4a': ('Background music', 'Temporary placeholder only. Clipped source (+2 dBTP). Not Afro-cinematic', 'Licence UNVERIFIED ("No Copyright" label, no source/artist). Internal preview only.'),
+ 'videos for tour/18102810-uhd_3840_2160_30fps.mp4': ('Ghana destinations', 'Roadside coconut seller (4K). V3 uses a hands/machete detail crop only (the full frame shows a phone number on a sign and crops the head at 9:16)', 'Pexels – https://www.pexels.com/video/18102810/ – ' + PEX + ' Identifiable person.'),
+ 'videos for tour/12716487_2560_1440_24fps.mp4': ('Ghana destinations', 'Accra interchange, overcast. Unused (flat grey sky)', 'Pexels – https://www.pexels.com/video/12716487/ – ' + PEX),
+ 'videos for tour/9694500-hd_1920_1080_24fps.mp4': ('Beaches & resorts', 'Fishing beach with canoes. EXCLUDED from v1 (hazy sky, poor after crop)', 'Pexels – https://www.pexels.com/video/9694500/ – ' + PEX),
+ 'videos for tour/6174521-hd_1080_1920_30fps.mp4': ('Student & lifestyle', 'Dancer in patterned top. Dark source (720p). Used briefly in v1', 'Pexels – https://www.pexels.com/video/6174521/ – ' + PEX + ' Identifiable people.'),
+ 'videos for tour/6193112-hd_1080_1920_30fps.mp4': ('Student & lifestyle', 'Friends dancing, African prints. Dark; needs lift', 'Pexels – https://www.pexels.com/video/6193112/ – ' + PEX + ' Identifiable people.'),
+ 'videos for tour/6193113-hd_1080_1920_30fps.mp4': ('Student & lifestyle', 'Friends dancing, African prints. Dark; needs lift', 'Pexels – https://www.pexels.com/video/6193113/ – ' + PEX + ' Identifiable people.'),
+ 'audio/(Audio) Upbeat Background Music For Videos (No Copyright).m4a': ('Background music', 'Temporary placeholder only. Clipped source (+2 dBTP). Not Afro-cinematic', 'Licence UNVERIFIED ("No Copyright" label, no source/artist; not from Pexels). Used only in V1 internal draft; NOT used in V2/V3.'),
  'Logo.svg': ('Brand assets', 'Dexterity logo (orange #f37a20 / navy #283c8d)', 'Owned brand asset.'),
 }
 def cat_for(p):
-    if p.startswith('audio files for tour/'): return ('Narration (tour)', 'December tour voiceover, scenes 1–6B in filename order', 'Client-recorded narration (WhatsApp voice notes).')
+    if p.startswith('audio files for tour/'): return ('Narration (tour)', 'December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md)', 'Project-owned voice recordings.')
     if p.startswith('BUDAPEST-VID/speech'): return ('Narration (Budapest)', 'Budapest study campaign speech notes', 'Client-recorded.')
     if p.startswith('BUDAPEST-VID/') : return ('Budapest campaign', 'Separate Budapest study-abroad campaign material', 'Mixed/unknown – confirm per file.')
     if p.startswith('Woman_answering'): return ('Budapest campaign', 'Budapest campaign AI clip', AI)

@@ -9,7 +9,7 @@ export const PRE: Record<string, number> = { whip: 0.2, zoom: 0.25, match: 0.2, 
 /** Camera language per shot: slow dolly (s0->s1), drift (x/y in %), origin. Montage shots also get a beat "punch". */
 export type Cam = { s0: number; s1: number; x0?: number; x1?: number; y0?: number; y1?: number; ox?: number; oy?: number; punch?: boolean; duotone?: boolean };
 
-const Layer: React.FC<{ shot: ShotV2T; next?: ShotV2T; cam: Cam; start: number }> = ({ shot, next, cam, start }) => {
+const Layer: React.FC<{ shot: ShotV2T; next?: ShotV2T; cam: Cam; start: number; dir: string }> = ({ shot, next, cam, start, dir }) => {
   const frame = useCurrentFrame(); const { fps } = useVideoConfig();
   const t = start + frame / fps;                         // global time
   const { t0, t1 } = shot;
@@ -38,14 +38,16 @@ const Layer: React.FC<{ shot: ShotV2T; next?: ShotV2T; cam: Cam; start: number }
     <AbsoluteFill style={{ opacity, clipPath: clip, overflow: 'hidden' }}>
       <Blur x={blurX} style={{ position: 'absolute', inset: 0 }}>
         <AbsoluteFill style={{ transform: `translate(${tx}%, ${ty}%) scale(${scale})`, transformOrigin: `${cam.ox ?? 50}% ${cam.oy ?? 45}%`, filter: filt || undefined }}>
-          <OffthreadVideo src={staticFile(`v2/${shot.id}.mp4`)} muted style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <OffthreadVideo src={staticFile(`${dir}/${shot.id}.mp4`)} muted style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          {/* local obscuring of inaccurate AI signage (moves with the camera because it lives inside the transformed layer) */}
+          {shot.signMask && <AbsoluteFill style={{ clipPath: `polygon(${shot.signMask.map(([x, y]) => `${x}% ${y}%`).join(', ')})`, backdropFilter: 'blur(26px) brightness(0.72) saturate(0.7)' }} />}
         </AbsoluteFill>
       </Blur>
     </AbsoluteFill>
   );
 };
 
-export const ShotsV2: React.FC<{ shots: ShotV2T[]; cams: Record<string, Cam> }> = ({ shots, cams }) => {
+export const ShotsV2: React.FC<{ shots: ShotV2T[]; cams: Record<string, Cam>; dir?: string }> = ({ shots, cams, dir = 'v2' }) => {
   const { fps } = useVideoConfig();
   return (
     <AbsoluteFill style={{ backgroundColor: '#05060f' }}>
@@ -54,7 +56,7 @@ export const ShotsV2: React.FC<{ shots: ShotV2T[]; cams: Record<string, Cam> }> 
         const from = Math.round(start * fps);
         return (
           <Sequence key={s.id} from={from} durationInFrames={Math.round(end * fps) - from} layout="none">
-            <Layer shot={s} next={next} cam={cams[s.id] ?? { s0: 1, s1: 1.04 }} start={from / fps} />
+            <Layer shot={s} next={next} cam={cams[s.id] ?? { s0: 1, s1: 1.04 }} start={from / fps} dir={dir} />
           </Sequence>
         );
       })}

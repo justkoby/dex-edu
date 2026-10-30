@@ -15,14 +15,14 @@ Index only – files stay in place under their original names (no duplicates). R
 
 | File | Tech | Suggested use | Licence / status |
 |---|---|---|---|
-| `audio/(Audio) Upbeat Background Music For Videos (No Copyright).m4a` | 96.98s · 1.75 MB | Temporary placeholder only. Clipped source (+2 dBTP). Not Afro-cinematic | Licence UNVERIFIED ("No Copyright" label, no source/artist). Internal preview only. |
+| `audio/(Audio) Upbeat Background Music For Videos (No Copyright).m4a` | 96.98s · 1.75 MB | Temporary placeholder only. Clipped source (+2 dBTP). Not Afro-cinematic | Licence UNVERIFIED ("No Copyright" label, no source/artist; not from Pexels). Used only in V1 internal draft; NOT used in V2/V3. |
 
 ## Beaches & resorts
 
 | File | Tech | Suggested use | Licence / status |
 |---|---|---|---|
-| `videos for tour/9694500-hd_1920_1080_24fps.mp4` | 1920x1080 · 24/1 · 12.27s · 9.06 MB | Fishing beach with canoes. EXCLUDED from v1 (hazy sky, poor after crop) | Stock, ID suggests Pexels – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. |
-| `videos for tour/Recording 2026-10-30 003912.mp4` | 1252x1366 · 30/1 · 8.53s · 8.27 MB | Palms, umbrella, loungers. Used in draft v1 | Screen recording of third-party footage (player UI visible) – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. |
+| `videos for tour/9694500-hd_1920_1080_24fps.mp4` | 1920x1080 · 24/1 · 12.27s · 9.06 MB | Fishing beach with canoes. EXCLUDED from v1 (hazy sky, poor after crop) | Pexels – https://www.pexels.com/video/9694500/ – Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. |
+| `videos for tour/Recording 2026-10-30 003912.mp4` | 1252x1366 · 30/1 · 8.53s · 8.27 MB | Palms, umbrella, loungers. Used in draft v1 | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. |
 | `videos for tour/Woman_relaxing_at_beach_restaurant_656dedd1_1080p.mp4` | 1080x1920 · 24/1 · 7.93s · 6.8 MB | Beachfront dining / relaxation hero | AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider. |
 
 ## Brand assets
@@ -60,19 +60,19 @@ Index only – files stay in place under their original names (no duplicates). R
 
 | File | Tech | Suggested use | Licence / status |
 |---|---|---|---|
-| `videos for tour/12716487_2560_1440_24fps.mp4` | 2560x1440 · 24000/1001 · 9.93s · 9.2 MB | Accra interchange, overcast. Unused (flat grey sky) | Stock, ID suggests Pexels – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. |
-| `videos for tour/18102810-uhd_3840_2160_30fps.mp4` | 3840x2160 · 30/1 · 4.52s · 14.8 MB | Roadside coconut seller (4K). Excluded: head cropped at 9:16 + visible phone number on sign | Stock, ID suggests Pexels – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. Identifiable person. |
-| `videos for tour/Recording 2026-10-30 003245.mp4` | 926x976 · 30/1 · 6.8s · 3.46 MB | Ocean/boats. EXCLUDED from draft v1: over-processed after 9:16 crop | Screen recording of third-party footage (player UI visible) – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. |
-| `videos for tour/Recording 2026-10-30 003655.mp4` | 1954x1196 · 30/1 · 10.13s · 12.89 MB | Street from car; blown-out sky. Unused | Screen recording of third-party footage (player UI visible) – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. |
-| `videos for tour/Recording 2026-10-30 004023.mp4` | 1372x1362 · 30/1 · 6.08s · 6.16 MB | Tuk-tuk street scene; blown sky after crop. EXCLUDED from v1 | Screen recording of third-party footage (player UI visible) – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. Identifiable people. |
+| `videos for tour/12716487_2560_1440_24fps.mp4` | 2560x1440 · 24000/1001 · 9.93s · 9.2 MB | Accra interchange, overcast. Unused (flat grey sky) | Pexels – https://www.pexels.com/video/12716487/ – Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. |
+| `videos for tour/18102810-uhd_3840_2160_30fps.mp4` | 3840x2160 · 30/1 · 4.52s · 14.8 MB | Roadside coconut seller (4K). V3 uses a hands/machete detail crop only (the full frame shows a phone number on a sign and crops the head at 9:16) | Pexels – https://www.pexels.com/video/18102810/ – Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. Identifiable person. |
+| `videos for tour/Recording 2026-10-30 003245.mp4` | 926x976 · 30/1 · 6.8s · 3.46 MB | Ocean/boats. EXCLUDED from draft v1: over-processed after 9:16 crop | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. |
+| `videos for tour/Recording 2026-10-30 003655.mp4` | 1954x1196 · 30/1 · 10.13s · 12.89 MB | Street from car; blown-out sky. Unused | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. |
+| `videos for tour/Recording 2026-10-30 004023.mp4` | 1372x1362 · 30/1 · 6.08s · 6.16 MB | Tuk-tuk street scene; blown sky after crop. EXCLUDED from v1 | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. Identifiable people. |
 
 ## Heritage & culture
 
 | File | Tech | Suggested use | Licence / status |
 |---|---|---|---|
-| `videos for tour/Recording 2026-10-30 003419.mp4` | 1460x1174 · 30/1 · 9.6s · 9.15 MB | Aerial coastal fort (location unconfirmed). Used in draft v1 | Screen recording of third-party footage (player UI visible) – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. |
-| `videos for tour/Recording 2026-10-30 003533.mp4` | 1726x1190 · 30/1 · 8.92s · 10.04 MB | Aerial coastal fort + town (location unconfirmed). Used in draft v1 | Screen recording of third-party footage (player UI visible) – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. |
-| `videos for tour/Recording 2026-10-30 003821.mp4` | 1818x1338 · 30/1 · 13.31s · 17.65 MB | Drummers; stylised/crushed after crop. EXCLUDED from v1; get a clean original | Screen recording of third-party footage (player UI visible) – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. Identifiable people. |
+| `videos for tour/Recording 2026-10-30 003419.mp4` | 1460x1174 · 30/1 · 9.6s · 9.15 MB | Aerial coastal fort (location unconfirmed). Used in draft v1 | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. |
+| `videos for tour/Recording 2026-10-30 003533.mp4` | 1726x1190 · 30/1 · 8.92s · 10.04 MB | Aerial coastal fort + town (location unconfirmed). Used in draft v1 | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. |
+| `videos for tour/Recording 2026-10-30 003821.mp4` | 1818x1338 · 30/1 · 13.31s · 17.65 MB | Drummers; stylised/crushed after crop. EXCLUDED from v1; get a clean original | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. Identifiable people. |
 | `videos for tour/Tour_guide_speaking_at_fortress_d8b8e221_1080p.mp4` | 1080x1920 · 24/1 · 5.97s · 7.55 MB | Generic illustrative heritage tour – NOT a verified location | AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider. |
 
 ## Narration (Budapest)
@@ -92,13 +92,13 @@ Index only – files stay in place under their original names (no duplicates). R
 
 | File | Tech | Suggested use | Licence / status |
 |---|---|---|---|
-| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.44.12 AM.mp4` | 10.92s · 0.1 MB | December tour voiceover, scenes 1–6B in filename order | Client-recorded narration (WhatsApp voice notes). |
-| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.44.22 AM.mp4` | 11.41s · 0.1 MB | December tour voiceover, scenes 1–6B in filename order | Client-recorded narration (WhatsApp voice notes). |
-| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.44.30 AM.mp4` | 9.94s · 0.09 MB | December tour voiceover, scenes 1–6B in filename order | Client-recorded narration (WhatsApp voice notes). |
-| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.45.45 AM.mp4` | 9.69s · 0.09 MB | December tour voiceover, scenes 1–6B in filename order | Client-recorded narration (WhatsApp voice notes). |
-| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.45.52 AM.mp4` | 11.61s · 0.1 MB | December tour voiceover, scenes 1–6B in filename order | Client-recorded narration (WhatsApp voice notes). |
-| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.45.59 AM.mp4` | 13.35s · 0.12 MB | December tour voiceover, scenes 1–6B in filename order | Client-recorded narration (WhatsApp voice notes). |
-| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.46.06 AM.mp4` | 9.56s · 0.08 MB | December tour voiceover, scenes 1–6B in filename order | Client-recorded narration (WhatsApp voice notes). |
+| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.44.12 AM.mp4` | 10.92s · 0.1 MB | December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md) | Project-owned voice recordings. |
+| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.44.22 AM.mp4` | 11.41s · 0.1 MB | December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md) | Project-owned voice recordings. |
+| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.44.30 AM.mp4` | 9.94s · 0.09 MB | December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md) | Project-owned voice recordings. |
+| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.45.45 AM.mp4` | 9.69s · 0.09 MB | December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md) | Project-owned voice recordings. |
+| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.45.52 AM.mp4` | 11.61s · 0.1 MB | December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md) | Project-owned voice recordings. |
+| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.45.59 AM.mp4` | 13.35s · 0.12 MB | December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md) | Project-owned voice recordings. |
+| `audio files for tour/WhatsApp Audio 2026-10-30 at 12.46.06 AM.mp4` | 9.56s · 0.08 MB | December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md) | Project-owned voice recordings. |
 
 ## Stills (AI keyframes)
 
@@ -114,6 +114,6 @@ Index only – files stay in place under their original names (no duplicates). R
 
 | File | Tech | Suggested use | Licence / status |
 |---|---|---|---|
-| `videos for tour/6174521-hd_1080_1920_30fps.mp4` | 720x1280 · 30/1 · 18.05s · 6.21 MB | Dancer in patterned top. Dark source (720p). Used briefly in v1 | Stock, ID suggests Pexels – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. Identifiable people. |
-| `videos for tour/6193112-hd_1080_1920_30fps.mp4` | 1080x1920 · 30/1 · 8.85s · 5.79 MB | Friends dancing, African prints. Dark; needs lift | Stock, ID suggests Pexels – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. Identifiable people. |
-| `videos for tour/6193113-hd_1080_1920_30fps.mp4` | 1080x1920 · 30/1 · 10.52s · 6.84 MB | Friends dancing, African prints. Dark; needs lift | Stock, ID suggests Pexels – Source/licence UNVERIFIED – do not use in public/paid campaigns until confirmed. Identifiable people. |
+| `videos for tour/6174521-hd_1080_1920_30fps.mp4` | 720x1280 · 30/1 · 18.05s · 6.21 MB | Dancer in patterned top. Dark source (720p). Used briefly in v1 | Pexels – https://www.pexels.com/video/6174521/ – Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. Identifiable people. |
+| `videos for tour/6193112-hd_1080_1920_30fps.mp4` | 1080x1920 · 30/1 · 8.85s · 5.79 MB | Friends dancing, African prints. Dark; needs lift | Pexels – https://www.pexels.com/video/6193112/ – Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. Identifiable people. |
+| `videos for tour/6193113-hd_1080_1920_30fps.mp4` | 1080x1920 · 30/1 · 10.52s · 6.84 MB | Friends dancing, African prints. Dark; needs lift | Pexels – https://www.pexels.com/video/6193113/ – Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. Identifiable people. |

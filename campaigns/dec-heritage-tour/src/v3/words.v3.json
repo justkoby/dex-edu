@@ -1,0 +1,297 @@
+[
+ {
+  "id": "p1_december",
+  "heard": "This December make your return to Ghana more than just a visit.",
+  "words": [
+   {
+    "w": "This",
+    "start": 0.35,
+    "end": 0.51
+   },
+   {
+    "w": "December,",
+    "start": 0.83,
+    "end": 1.63
+   },
+   {
+    "w": "make",
+    "start": 2.11,
+    "end": 2.27
+   },
+   {
+    "w": "your",
+    "start": 2.43,
+    "end": 2.67
+   },
+   {
+    "w": "return",
+    "start": 2.67,
+    "end": 3.07
+   },
+   {
+    "w": "to",
+    "start": 3.07,
+    "end": 3.23
+   },
+   {
+    "w": "Ghana",
+    "start": 3.23,
+    "end": 3.71
+   },
+   {
+    "w": "more",
+    "start": 3.71,
+    "end": 3.95
+   },
+   {
+    "w": "than",
+    "start": 3.95,
+    "end": 4.19
+   },
+   {
+    "w": "just",
+    "start": 4.19,
+    "end": 4.43
+   },
+   {
+    "w": "a",
+    "start": 4.43,
+    "end": 4.59
+   },
+   {
+    "w": "visit.",
+    "start": 4.59,
+    "end": 5.07
+   }
+  ]
+ },
+ {
+  "id": "p2_roots",
+  "heard": "Make it a journey back to your roots.",
+  "words": [
+   {
+    "w": "Make",
+    "start": 6.3,
+    "end": 6.78
+   },
+   {
+    "w": "it",
+    "start": 6.86,
+    "end": 7.02
+   },
+   {
+    "w": "a",
+    "start": 7.02,
+    "end": 7.26
+   },
+   {
+    "w": "journey",
+    "start": 7.26,
+    "end": 7.74
+   },
+   {
+    "w": "back",
+    "start": 7.74,
+    "end": 7.98
+   },
+   {
+    "w": "to",
+    "start": 7.98,
+    "end": 8.14
+   },
+   {
+    "w": "your",
+    "start": 8.14,
+    "end": 8.3
+   },
+   {
+    "w": "roots.",
+    "start": 8.3,
+    "end": 8.7
+   }
+  ]
+ },
+ {
+  "id": "p3_history",
+  "heard": "Reconnect with our rich history, discover the stories that shaped our heritage.",
+  "words": [
+   {
+    "w": "Reconnect",
+    "start": 12.56,
+    "end": 13.36
+   },
+   {
+    "w": "with",
+    "start": 13.36,
+    "end": 13.68
+   },
+   {
+    "w": "our",
+    "start": 13.68,
+    "end": 14.0
+   },
+   {
+    "w": "rich",
+    "start": 14.0,
+    "end": 14.48
+   },
+   {
+    "w": "history,",
+    "start": 14.48,
+    "end": 15.48
+   },
+   {
+    "w": "discover",
+    "start": 15.52,
+    "end": 16.16
+   },
+   {
+    "w": "the",
+    "start": 16.16,
+    "end": 16.32
+   },
+   {
+    "w": "stories",
+    "start": 16.32,
+    "end": 16.96
+   },
+   {
+    "w": "that",
+    "start": 16.96,
+    "end": 17.2
+   },
+   {
+    "w": "shaped",
+    "start": 17.2,
+    "end": 17.68
+   },
+   {
+    "w": "our",
+    "start": 17.68,
+    "end": 17.92
+   },
+   {
+    "w": "heritage",
+    "start": 17.92,
+    "end": 18.48
+   }
+  ]
+ },
+ {
+  "id": "p4_coast",
+  "heard": "Soak in the beauty of our coastal line and wind by the ocean",
+  "words": [
+   {
+    "w": "Soak",
+    "start": 20.69,
+    "end": 21.17
+   },
+   {
+    "w": "in",
+    "start": 21.17,
+    "end": 21.33
+   },
+   {
+    "w": "the",
+    "start": 21.33,
+    "end": 21.49
+   },
+   {
+    "w": "beauty",
+    "start": 21.49,
+    "end": 21.97
+   },
+   {
+    "w": "of",
+    "start": 21.97,
+    "end": 22.13
+   },
+   {
+    "w": "our",
+    "start": 22.13,
+    "end": 22.37
+   },
+   {
+    "w": "coastline,",
+    "start": 22.37,
+    "end": 23.29
+   },
+   {
+    "w": "unwind",
+    "start": 23.29,
+    "end": 24.21
+   },
+   {
+    "w": "by",
+    "start": 24.21,
+    "end": 24.37
+   },
+   {
+    "w": "the",
+    "start": 24.37,
+    "end": 24.53
+   },
+   {
+    "w": "ocean",
+    "start": 24.53,
+    "end": 24.85
+   }
+  ]
+ },
+ {
+  "id": "p5_message",
+  "heard": "Send Dexterity Education and Travel and Tour a Message Today.",
+  "words": [
+   {
+    "w": "Send",
+    "start": 32.86,
+    "end": 33.18
+   },
+   {
+    "w": "Dexterity",
+    "start": 33.26,
+    "end": 33.98
+   },
+   {
+    "w": "Education",
+    "start": 34.06,
+    "end": 34.78
+   },
+   {
+    "w": "and",
+    "start": 34.86,
+    "end": 35.1
+   },
+   {
+    "w": "Travel",
+    "start": 35.26,
+    "end": 35.74
+   },
+   {
+    "w": "and",
+    "start": 36.22,
+    "end": 36.38
+   },
+   {
+    "w": "Tour",
+    "start": 36.54,
+    "end": 36.94
+   },
+   {
+    "w": "a",
+    "start": 37.1,
+    "end": 37.34
+   },
+   {
+    "w": "message",
+    "start": 37.34,
+    "end": 37.9
+   },
+   {
+    "w": "today",
+    "start": 37.9,
+    "end": 38.46
+   }
+  ]
+ }
+]

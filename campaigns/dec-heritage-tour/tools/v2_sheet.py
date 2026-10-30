@@ -6,7 +6,7 @@ root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 out, N, ids = sys.argv[1], int(sys.argv[2]), sys.argv[3:]
 H = 320; W = 180; rows = []
 for sid in ids:
-    p = f'{root}/public/v2/{sid}.mp4'
+    p = f"{root}/public/{os.environ.get('DEX_VER','v2')}/{sid}.mp4"
     d = float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',p],capture_output=True,text=True).stdout)
     r = subprocess.run(['ffmpeg','-v','error','-i',p,'-vf',f'fps={N/d:.4f},scale={W}:{H}','-f','image2pipe','-vcodec','png','-'],capture_output=True)
     data = r.stdout; ims = []; i = 0

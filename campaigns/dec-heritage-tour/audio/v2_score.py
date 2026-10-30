@@ -9,7 +9,8 @@ import json, os, wave
 import numpy as np
 
 root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-T = json.load(open(f'{root}/src/v2/timeline.v2.json'))
+VER = os.environ.get('DEX_VER', 'v2'); OUT = f'{root}/work/{VER}'
+T = json.load(open(f'{root}/src/{VER}/timeline.{VER}.json'))
 SR = 48000; BPM = T['bpm']; BEAT = 60 / BPM; S16 = BEAT / 4; BAR = BEAT * 4
 TOTAL = T['total'] + 0.6                      # ring-out beyond the picture is trimmed by the mix
 N = int(TOTAL * SR)
@@ -196,7 +197,7 @@ for at, n in ((14.25, 'A3'), (14.5, 'C4'), (16.25, 'E4'), (16.5, 'D4'), (18.25, 
 shots = {s['id']: s for s in T['shots']}
 add('fx', impact(1.0), 0.0)
 add('fx', chime(), shots['h2_arrival']['t0'] + 0.05, 0.9, pan=0.1)                      # arrival PA chime on the Accra cut
-add('fx', whoosh(0.55, 500, 9000), shots['j2_coast']['t0'] - 0.33, 1.0, pan=0.5)        # whip-pan
+add('fx', whoosh(0.5, 500, 9000), shots['j2_coast']['t0'] - 0.22, 0.75, pan=0.5)       # whip-pan (starts after the last spoken word)
 add('fx', riser(1.9), shots['g1_fort']['t0'] - 1.9, 0.9)
 add('fx', impact(0.9), shots['g1_fort']['t0'])
 add('fx', whoosh(0.45, 200, 2500), shots['g2_guide']['t0'] - 0.25, 0.5)                 # soft air on the graphic match
@@ -206,6 +207,13 @@ for sid in ('j1_window', 'm1_dance', 'm4_friends'): add('fx', shutter(), shots[s
 add('fx', impact(0.7), shots['m1_dance']['t0'])
 add('fx', whoosh(0.7, 300, 8000), shots['c1_plate']['t0'] - 0.25, 0.9, pan=-0.4)       # brand wipe
 add('fx', impact(0.45), shots['c1_plate']['t0'] + 0.15)
+
+def tick():                                            # soft wooden 'pin drop' tick (V3 location graphic)
+    t = t_(0.18); y = np.sin(2 * np.pi * 1850 * t) * np.exp(-t * 60) + 0.5 * np.sin(2 * np.pi * 920 * t) * np.exp(-t * 35)
+    return y * 0.18
+for e in T.get('sfx_extra', []):                       # understated cues placed by the edit (V3)
+    if e['type'] == 'tick': add('fx', tick(), e['at'], e.get('gain', 1.0), pan=-0.2)
+    if e['type'] == 'swish': add('fx', whoosh(e.get('dur', 0.4), 1500, 11000), e['at'] - e.get('dur', 0.4) * 0.6, e.get('gain', 0.5), pan=e.get('pan', 0.0))
 
 # ---------------------------------------------------------------- reverb (send) and render
 def reverb(x, secs=1.9, mix=0.22):
@@ -218,13 +226,13 @@ def reverb(x, secs=1.9, mix=0.22):
 for k, mix in (('keys', 0.35), ('pads', 0.25), ('perc', 0.12), ('fx', 0.2)):
     STEMS[k] = reverb(STEMS[k], mix=mix).astype(np.float32)
 GAIN = dict(drums=0.87, perc=1.6, bass=0.9, keys=1.27, pads=1.27, fx=1.0)
-os.makedirs(f'{root}/work/v2/stems', exist_ok=True)
+os.makedirs(f'{OUT}/stems', exist_ok=True)
 def write(p, x):
     with wave.open(p, 'wb') as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
         w.writeframes((np.clip(x.T, -1, 1) * 32767).astype(np.int16).tobytes())
 mus = sum(STEMS[k] * GAIN[k] for k in STEMS if k != 'fx'); fx = STEMS['fx'] * GAIN['fx']
 pk = max(np.abs(mus).max(), np.abs(fx).max()); sc = 0.7 / pk
-for k in STEMS: write(f'{root}/work/v2/stems/{k}.wav', STEMS[k] * GAIN[k] * sc)
-write(f'{root}/work/v2/score_music.wav', mus * sc); write(f'{root}/work/v2/score_fx.wav', fx * sc)
+for k in STEMS: write(f'{OUT}/stems/{k}.wav', STEMS[k] * GAIN[k] * sc)
+write(f'{OUT}/score_music.wav', mus * sc); write(f'{OUT}/score_fx.wav', fx * sc)
 print('score written', TOTAL, 's; stems:', ', '.join(STEMS))

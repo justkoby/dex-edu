@@ -9,6 +9,7 @@
     "still": "remotion still src/index.ts HeritageTour --frame=0 out/still.png --browser-executable=$CHROME_BIN"
   },
   "dependencies": {
+    "@fontsource/bricolage-grotesque": "^5.3.0",
     "@fontsource/instrument-serif": "^5.3.0",
     "@fontsource/manrope": "^5.3.0",
     "@fontsource/montserrat": "^5.3.0",

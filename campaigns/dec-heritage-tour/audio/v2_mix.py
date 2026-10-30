@@ -7,12 +7,12 @@ import argparse, json, os, subprocess, sys, wave
 import numpy as np
 sys.path.insert(0, os.path.dirname(__file__))
 from vo_master import CHAIN
-root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')); W = f'{root}/work/v2'; SR = 48000
+root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')); VER = os.environ.get('DEX_VER', 'v2'); W = f'{root}/work/{VER}'; VO_DIR = f'{root}/work/v2'; SR = 48000
 ap = argparse.ArgumentParser()
 ap.add_argument('--music', default=f'{W}/score_music.wav'); ap.add_argument('--fx', default=f'{W}/score_fx.wav')
 ap.add_argument('--music-db', type=float, default=-3.0); ap.add_argument('--duck-db', type=float, default=-8.0)
 a = ap.parse_args()
-T = json.load(open(f'{root}/src/v2/timeline.v2.json')); TOTAL = T['total']; N = int(TOTAL * SR)
+T = json.load(open(f'{root}/src/{VER}/timeline.{VER}.json')); TOTAL = T['total']; N = int(TOTAL * SR)
 def run(c): r = subprocess.run(c, capture_output=True, text=True); assert r.returncode == 0, r.stderr[-400:]; return r
 def rd(p, ch=2):
     r = subprocess.run(['ffmpeg','-v','error','-i',p,'-f','f32le','-ac',str(ch),'-ar',str(SR),'-'], capture_output=True)
@@ -22,7 +22,7 @@ def fit(x):
 # --- narration
 vo = np.zeros((1, N), np.float32); report = []
 for v in T['vo']:
-    raw, pre, out = f"{W}/{v['id']}_raw.wav", f"{W}/{v['id']}_pre.wav", f"{W}/{v['id']}_proc.wav"
+    raw, pre, out = f"{VO_DIR}/{v['id']}_raw.wav", f"{W}/{v['id']}_pre.wav", f"{W}/{v['id']}_proc.wav"
     run(['ffmpeg','-y','-v','error','-i',raw,'-af',CHAIN,'-c:a','pcm_f32le',pre])
     r = subprocess.run(['ffmpeg','-hide_banner','-nostats','-i',pre,'-af','loudnorm=I=-19:TP=-3:LRA=7:print_format=json','-f','null','-'],capture_output=True,text=True).stderr
     j = json.loads(r[r.rfind('{'):r.rfind('}') + 1])
@@ -38,14 +38,14 @@ rms = np.sqrt(smooth(vo[0] ** 2, int(0.04 * SR)) + 1e-12); act = (20 * np.log10(
 act = np.maximum.reduce([np.roll(act, k) for k in range(0, int(0.15 * SR), 480)])
 duck = 10 ** (a.duck_db * smooth(act, int(0.22 * SR)) / 20)
 tail = np.ones(N); tail[-int(0.5 * SR):] = np.linspace(1, 0, int(0.5 * SR)) ** 2            # last 0.5 s fade
-mix = (mus * duck + fx * (0.6 + 0.4 * duck) + np.repeat(vo, 2, 0)) * tail
+mix = (mus * duck + fx * (0.35 + 0.65 * duck) + np.repeat(vo, 2, 0)) * tail    # fx also give way to the voice
 raw = f'{W}/_premix.f32'; mix.T.astype('<f4').tofile(raw)
 inp = ['-f','f32le','-ar',str(SR),'-ac','2','-i',raw]
 r = subprocess.run(['ffmpeg','-hide_banner','-nostats',*inp,'-af','loudnorm=I=-14:TP=-1.2:LRA=11:print_format=json','-f','null','-'],capture_output=True,text=True).stderr
 j = json.loads(r[r.rfind('{'):r.rfind('}') + 1])
 ln = (f"loudnorm=I=-14:TP=-1.2:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}:"
       f"measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,alimiter=limit=0.87:attack=3:release=60:level=false")
-os.makedirs(f'{root}/public/v2', exist_ok=True)
-run(['ffmpeg','-y','-v','error',*inp,'-af',ln,'-ar',str(SR),'-c:a','pcm_s24le',f'{root}/public/v2/mix_v2.wav'])
-json.dump(dict(phrases=report, premix=j, music=os.path.basename(a.music)), open(f'{W}/mix_v2_report.json','w'), indent=1)
+os.makedirs(f'{root}/public/{VER}', exist_ok=True)
+run(['ffmpeg','-y','-v','error',*inp,'-af',ln,'-ar',str(SR),'-c:a','pcm_s24le',f'{root}/public/{VER}/mix_{VER}.wav'])
+json.dump(dict(phrases=report, premix=j, music=os.path.basename(a.music)), open(f'{W}/mix_{VER}_report.json','w'), indent=1)
 print(json.dumps(dict(phrases=report, premix_I=j['input_i'], premix_TP=j['input_tp'], linear_gain=j['target_offset']), indent=1))

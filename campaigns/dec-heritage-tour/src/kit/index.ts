@@ -9,3 +9,7 @@ export * from './Effects';
 export * from './EndCard';
 export * from './ReviewFlags';
 export { loadKitFonts } from './fonts';
+export * from './Campaign';
+export * from './Subtitles';
+export * from './LocationPin';
+export * from './EndCardV3';

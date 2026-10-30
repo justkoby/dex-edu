@@ -5,6 +5,7 @@ export const COLOR = {
 export const TYPE = {
   sans: "'DexJakarta', 'Plus Jakarta Sans', Helvetica, Arial, sans-serif", // OFL-1.1 (@fontsource/plus-jakarta-sans)
   serif: "'DexInstrument', 'Instrument Serif', Georgia, serif",            // OFL-1.1 (@fontsource/instrument-serif)
+  display: "'DexBricolage', 'Bricolage Grotesque', sans-serif",          // OFL-1.1 Google Fonts build (@fontsource/bricolage-grotesque) – V3+
 };
 // 1080x1920 platform-safe area (TikTok / Reels / Shorts UI): keep text inside.
 export const SAFE = { top: 240, bottom: 1490, left: 84, right: 996 };
@@ -14,7 +15,8 @@ export const SAFE = { top: 240, bottom: 1490, left: 84, right: 996 };
  * dexterity-motion-budapest compositions). Re-confirm with Dexterity before any paid placement.
  */
 export const CONTACT = {
-  phones: ['0244489721', '0303984034'],
+  phones: ['0244489721', '0303984034'],   // [0] mobile = primary CTA line; which number carries WhatsApp is NOT documented
+  primaryLabel: 'Call or message',
   website: 'dexterityedutravel.com',
   source: 'feature/dexterity-skit · src/config/brand.ts (d2ad658)',
 };
