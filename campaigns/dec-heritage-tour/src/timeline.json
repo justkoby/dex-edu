@@ -1,0 +1,335 @@
+{
+ "fps": 30,
+ "total": 85.08,
+ "totalFrames": 2552,
+ "lead": 1.3,
+ "voStart": 1.3,
+ "voEnd": 80.48,
+ "scenes": [
+  {
+   "id": "1-homecoming",
+   "start": 0.0,
+   "end": 12.473
+  },
+  {
+   "id": "2-journey",
+   "start": 12.473,
+   "end": 24.386
+  },
+  {
+   "id": "3-heritage",
+   "start": 24.386,
+   "end": 34.827
+  },
+  {
+   "id": "4-relaxation",
+   "start": 34.827,
+   "end": 45.013
+  },
+  {
+   "id": "5-memories",
+   "start": 45.013,
+   "end": 57.118
+  },
+  {
+   "id": "6-invitation",
+   "start": 57.118,
+   "end": 85.08
+  }
+ ],
+ "vo": [
+  {
+   "scene": "1-homecoming",
+   "start": 1.3,
+   "end": 12.223
+  },
+  {
+   "scene": "2-journey",
+   "start": 12.723,
+   "end": 24.136
+  },
+  {
+   "scene": "3-heritage",
+   "start": 24.636,
+   "end": 34.577
+  },
+  {
+   "scene": "4-relaxation",
+   "start": 35.077,
+   "end": 44.763
+  },
+  {
+   "scene": "5-memories",
+   "start": 45.263,
+   "end": 56.868
+  },
+  {
+   "scene": "6a-invitation",
+   "start": 57.368,
+   "end": 70.723
+  },
+  {
+   "scene": "6b-invitation",
+   "start": 70.923,
+   "end": 80.48
+  }
+ ],
+ "shots": [
+  {
+   "id": "1-homecoming_0",
+   "scene": "1-homecoming",
+   "clip": "suitcase",
+   "start": 0.0,
+   "end": 5.933333333333334,
+   "srcIn": 0.0,
+   "trans": {
+    "type": "cut",
+    "dur": 0
+   },
+   "flag": "AI-generated (Dexterity-provided) \u2013 OK internal",
+   "dur": 5.933,
+   "head": 0.0,
+   "tail": 0.2
+  },
+  {
+   "id": "1-homecoming_1",
+   "scene": "1-homecoming",
+   "clip": "terminal",
+   "start": 5.933333333333334,
+   "end": 12.466666666666667,
+   "srcIn": 0.5,
+   "trans": {
+    "type": "dissolve",
+    "dur": 0.4
+   },
+   "flag": "AI-generated \u2013 OK internal",
+   "dur": 6.533,
+   "head": 0.2,
+   "tail": 0.4
+  },
+  {
+   "id": "2-journey_0",
+   "scene": "2-journey",
+   "clip": "suv",
+   "start": 12.466666666666667,
+   "end": 18.7,
+   "srcIn": 0.0,
+   "trans": {
+    "type": "leak",
+    "dur": 0.8
+   },
+   "flag": "AI-generated \u2013 OK internal",
+   "dur": 6.233,
+   "head": 0.4,
+   "tail": 0.25
+  },
+  {
+   "id": "2-journey_1",
+   "scene": "2-journey",
+   "clip": "aerial_a",
+   "start": 18.7,
+   "end": 24.4,
+   "srcIn": 0.5,
+   "trans": {
+    "type": "push",
+    "dur": 0.5
+   },
+   "flag": "UNVERIFIED screen-recording; location not confirmed",
+   "dur": 5.7,
+   "head": 0.25,
+   "tail": 0.4
+  },
+  {
+   "id": "3-heritage_0",
+   "scene": "3-heritage",
+   "clip": "guide",
+   "start": 24.4,
+   "end": 29.733333333333334,
+   "srcIn": 0.0,
+   "trans": {
+    "type": "leak",
+    "dur": 0.8
+   },
+   "flag": "AI-generated \u2013 OK internal (location unverified, not named)",
+   "dur": 5.333,
+   "head": 0.4,
+   "tail": 0.25
+  },
+  {
+   "id": "3-heritage_1",
+   "scene": "3-heritage",
+   "clip": "aerial_b",
+   "start": 29.733333333333334,
+   "end": 34.833333333333336,
+   "srcIn": 0.5,
+   "trans": {
+    "type": "dissolve",
+    "dur": 0.5
+   },
+   "flag": "UNVERIFIED screen-recording; location not confirmed",
+   "dur": 5.1,
+   "head": 0.25,
+   "tail": 0.4
+  },
+  {
+   "id": "4-relaxation_0",
+   "scene": "4-relaxation",
+   "clip": "restaurant",
+   "start": 34.833333333333336,
+   "end": 40.733333333333334,
+   "srcIn": 0.0,
+   "trans": {
+    "type": "leak",
+    "dur": 0.8
+   },
+   "flag": "AI-generated \u2013 OK internal",
+   "dur": 5.9,
+   "head": 0.4,
+   "tail": 0.25
+  },
+  {
+   "id": "4-relaxation_1",
+   "scene": "4-relaxation",
+   "clip": "palms",
+   "start": 40.733333333333334,
+   "end": 45.0,
+   "srcIn": 0.3,
+   "trans": {
+    "type": "dissolve",
+    "dur": 0.5
+   },
+   "flag": "UNVERIFIED screen-recording of third-party footage",
+   "dur": 4.267,
+   "head": 0.25,
+   "tail": 0.4
+  },
+  {
+   "id": "5-memories_0",
+   "scene": "5-memories",
+   "clip": "dance_a",
+   "start": 45.0,
+   "end": 50.06666666666667,
+   "srcIn": 0.5,
+   "trans": {
+    "type": "leak",
+    "dur": 0.8
+   },
+   "flag": "Stock (source/licence UNVERIFIED); identifiable people, no release",
+   "dur": 5.067,
+   "head": 0.4,
+   "tail": 0.0
+  },
+  {
+   "id": "5-memories_1",
+   "scene": "5-memories",
+   "clip": "dancer",
+   "start": 50.06666666666667,
+   "end": 52.53333333333333,
+   "srcIn": 3.0,
+   "trans": {
+    "type": "cut",
+    "dur": 0
+   },
+   "flag": "Stock (source/licence UNVERIFIED); 720p source, identifiable person",
+   "dur": 2.467,
+   "head": 0.0,
+   "tail": 0.2
+  },
+  {
+   "id": "5-memories_2",
+   "scene": "5-memories",
+   "clip": "dance_b",
+   "start": 52.53333333333333,
+   "end": 57.13333333333333,
+   "srcIn": 0.3,
+   "trans": {
+    "type": "dissolve",
+    "dur": 0.4
+   },
+   "flag": "Stock (source/licence UNVERIFIED); identifiable people, no release",
+   "dur": 4.6,
+   "head": 0.2,
+   "tail": 0.4
+  },
+  {
+   "id": "6-invitation_0",
+   "scene": "6-invitation",
+   "clip": "restaurant",
+   "start": 57.13333333333333,
+   "end": 59.53333333333333,
+   "srcIn": 5.5,
+   "trans": {
+    "type": "leak",
+    "dur": 0.8
+   },
+   "flag": "AI-generated \u2013 OK internal",
+   "dur": 2.4,
+   "head": 0.4,
+   "tail": 0.0
+  },
+  {
+   "id": "6-invitation_1",
+   "scene": "6-invitation",
+   "clip": "dance_b",
+   "start": 59.53333333333333,
+   "end": 63.733333333333334,
+   "srcIn": 5.0,
+   "trans": {
+    "type": "cut",
+    "dur": 0
+   },
+   "flag": "Stock (source/licence UNVERIFIED); identifiable people, no release",
+   "dur": 4.2,
+   "head": 0.0,
+   "tail": 0.2
+  },
+  {
+   "id": "6-invitation_2",
+   "scene": "6-invitation",
+   "clip": "aerial_a",
+   "start": 63.733333333333334,
+   "end": 67.3,
+   "srcIn": 5.0,
+   "trans": {
+    "type": "dissolve",
+    "dur": 0.4
+   },
+   "flag": "UNVERIFIED screen-recording; location not confirmed",
+   "dur": 3.567,
+   "head": 0.2,
+   "tail": 0.0
+  },
+  {
+   "id": "6-invitation_3",
+   "scene": "6-invitation",
+   "clip": "dance_a",
+   "start": 67.3,
+   "end": 71.86666666666666,
+   "srcIn": 6.0,
+   "trans": {
+    "type": "cut",
+    "dur": 0
+   },
+   "flag": "Stock (source/licence UNVERIFIED); identifiable people, no release",
+   "dur": 4.567,
+   "head": 0.0,
+   "tail": 0.4
+  },
+  {
+   "id": "6-invitation_4",
+   "scene": "6-invitation",
+   "clip": "palms",
+   "start": 71.86666666666666,
+   "end": 85.06666666666666,
+   "srcIn": 4.0,
+   "trans": {
+    "type": "leak",
+    "dur": 0.8
+   },
+   "flag": "UNVERIFIED screen-recording of third-party footage",
+   "dur": 13.2,
+   "head": 0.4,
+   "tail": 0.0
+  }
+ ]
+}
