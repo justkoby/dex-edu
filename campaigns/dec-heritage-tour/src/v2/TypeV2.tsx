@@ -46,8 +46,8 @@ const Hook: React.FC<{ t: number }> = ({ t }) => {
 
 /** 6–9 s: bottom-left split (serif lead-in + bold orange payoff); leaves with the whip-pan. */
 const Journey: React.FC<{ t: number }> = ({ t }) => {
-  if (t < 6.8 || t > 9.1) return null;
-  const p = prog(t, 8.8, 9.08); const tx = -expoOut(p) * 70;
+  if (t < 6.8 || t >= 9.0) return null;                  // fully gone at the whip cut
+  const p = prog(t, 8.78, 8.99); const tx = -expoOut(p) * 120;
   return (
     <div style={{ position: 'absolute', left: 84, top: 1215, transform: `translateX(${tx}%)` }}>
       <Blur x={p > 0 && p < 1 ? 22 * Math.sin(Math.PI * p) : 0}>
@@ -62,15 +62,15 @@ const Journey: React.FC<{ t: number }> = ({ t }) => {
 const Heritage: React.FC<{ t: number }> = ({ t }) => {
   if (t < 11.95 || t > 14.55) return null;
   const pin = expoOut(prog(t, 12.0, 12.7)); const fill = prog(t, 12.05, 12.5);
-  const out = expoIn(prog(t, 14.28, 14.5)); const s = lerp(1.22, 1, pin) * lerp(1, 1.04, prog(t, 12.7, 14.5));
+  const out = expoIn(prog(t, 14.28, 14.5)); const s = lerp(1.1, 1, pin) * lerp(1, 1.04, prog(t, 12.7, 14.5));
   return (
     <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center', opacity: 1 - out }}>
       <div style={{ transform: `translateY(-90px) scale(${s})`, textAlign: 'center' }}>
         <Blur y={(1 - pin) * 18}>
           <div style={{ position: 'relative', fontFamily: TYPE.sans, fontWeight: 800, fontSize: 172, letterSpacing: '-0.03em', lineHeight: 1, color: 'transparent', WebkitTextStroke: '3px #fff', textShadow: '0 6px 40px rgba(5,8,25,0.35)', opacity: clamp(pin * 2) }}>
             HERITAGE
-            {/* solid fill lands with the impact, then wipes off left-to-right leaving the outline */}
-            <div style={{ position: 'absolute', inset: 0, color: COLOR.white, WebkitTextStroke: '0px', clipPath: `inset(0 0 0 ${100 * expoOut(fill)}%)` }}>HERITAGE</div>
+            {/* solid fill lands with the impact, then dissolves to leave the outline */}
+            <div style={{ position: 'absolute', inset: 0, color: COLOR.white, WebkitTextStroke: '0px', opacity: 1 - expoOut(fill) }}>HERITAGE</div>
           </div>
         </Blur>
         <Reveal t={t} at={W.rich} dur={0.45} style={{ marginTop: 22, display: 'flex', justifyContent: 'center' }}><Accent size={96}>rich history</Accent></Reveal>

@@ -47,3 +47,21 @@ Only the audio is re-rendered – the video render does not need repeating (fini
 ## Turn off review flags
 `reviewFlags` prop in `src/Root.tsx` (`defaultProps`) – flags the draft status and unverified footage on screen.
 Fonts: Playfair Display (OFL) and Montserrat (OFL) via `@fontsource`, copied to `public/fonts`.
+
+## Version 2 (39 s, composition `HeritageTourV2`)
+Creative notes, narration proposal and QA: `docs/V2_CREATIVE_NOTES.md`; full transcript: `docs/narration_transcript.md`.
+```bash
+# one-off: offline ASR model (GitHub release, ~640 MB) for transcription/phrase verification
+curl -L -o ws.tar.bz2 https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-small.en.tar.bz2 && tar xjf ws.tar.bz2
+pip install sherpa-onnx soundfile
+python3 tools/v2_extract_vo.py sherpa-onnx-whisper-small.en   # cut + verify narration phrases
+python3 tools/v2_plan.py                                       # edit decisions -> src/v2/timeline.v2.json
+python3 tools/v2_prep.py                                       # speed ramps + grade -> public/v2/*.mp4
+python3 audio/v2_score.py                                      # original score + stems
+python3 audio/v2_mix.py                                        # -> public/v2/mix_v2.wav (-14 LUFS / -1 dBTP)
+python3 tools/v2_intelligibility.py sherpa-onnx-whisper-small.en
+npx remotion render src/index.ts HeritageTourV2 out/v2_video.mp4 --muted --browser-executable=$CHROME_BIN
+bash tools/finish_v2.sh                                        # mux + review encode
+```
+Swap music: `python3 audio/v2_mix.py --music licensed.wav && bash tools/finish_v2.sh` (no picture re-render).
+Reusable kit for the November series: `src/kit/` (see notes §9).

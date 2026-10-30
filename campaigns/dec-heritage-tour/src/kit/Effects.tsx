@@ -2,9 +2,9 @@ import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { clamp, expoOut, prog } from './motion';
 /** Photographic flash on a cut (the "memories" motif): 1 frame near-white, ~6 frames decay. */
-export const Flash: React.FC<{ t: number; at: number; strength?: number }> = ({ t, at, strength = 0.85 }) => {
-  const p = (t - at) / 0.22; if (p < 0 || p > 1) return null;
-  return <AbsoluteFill style={{ background: '#fff8ee', opacity: strength * Math.pow(1 - p, 2.2), mixBlendMode: 'screen' }} />;
+export const Flash: React.FC<{ t: number; at: number; strength?: number }> = ({ t, at, strength = 0.55 }) => {
+  const p = (t - at) / 0.16; if (p < 0 || p > 1) return null;
+  return <AbsoluteFill style={{ background: '#fff8ee', opacity: strength * Math.pow(1 - p, 3), mixBlendMode: 'screen' }} />;
 };
 /** Anamorphic warm light sweep centred on `at` (used once: heritage -> relaxation). */
 export const LightSweep: React.FC<{ t: number; at: number; dur?: number }> = ({ t, at, dur = 0.9 }) => {

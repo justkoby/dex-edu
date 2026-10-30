@@ -76,7 +76,24 @@ Masked reveals (no fades for type), expo/quint easing, velocity-based directiona
 `024 448 9721 · 030 398 4034 · dexterityedutravel.com`. These come from the earlier Dexterity promotional video in this repository (`feature/dexterity-skit*` → `src/config/brand.ts`, first added in commit `d2ad658`; reused in the `dexterity-motion-budapest` compositions). The repository doesn't say which number is on WhatsApp, so the CTA says "Message us today" (the narration's own words) rather than "WhatsApp". Please confirm both numbers before publishing.
 
 ## 8. Creative-director check (honest answers)
-QA_PLACEHOLDER
+| Question | Verdict |
+|---|---|
+| Hook within 2 s? | **Yes, mostly.** Impact + speed-ramped motion at frame 0; "THIS" lands at 0.43 s and "DECEMBER" at 0.88 s with the voice; the Accra arrival hero arrives at 1.5 s. Risk: the very first image is legs and a suitcase, not a face. An alternative is to open on the arrival hero and use the wheels as the second shot. |
+| Every shot necessary? | 15 shots, each with one job. The weakest is the montage fort beat (31–32 s), a second look at the heritage aerial. |
+| Repetitive? | Far less than V1. No transition type is used more than three times; the light sweep is used once. The stock dancers still look different from the AI-generated core; quick montage cutting hides most of it. |
+| Typography distinctive? | Nine different compositions on one system (grotesk + serif italic + spaced labels). Weak spot: the small orange "THIS DECEMBER" kicker over the bright airport floor (1.8–5.6 s) is low-contrast. |
+| Animation art-directed? | Masked reveals, a morph across the first cut, motion-blurred whip, zoom-through, beat words and brand wipe. Reviewed on rendered frames (one per second, plus every transition mid-point); four issues were found and fixed before the final render. **Not watched at real-time speed in this environment.** |
+| Does the music excite? | Structurally it is built to: sparse hook → groove → half-time heritage → full energy → montage peak → resolution. **It has not been heard.** It needs a listening approval, and replacing it with a licensed Afro-cinematic track is a one-command swap. |
+| Clear without narration? | Yes for muted viewing: every key line is on screen ("This December", "more than just a visit", "a journey back to your roots", "heritage", "rich history", "Unwind by the ocean", CTA). |
+| Does the CTA drive action? | Logo, campaign title, the contacts from 35.2 s and the orange "MESSAGE US TODAY" pill on the spoken words at 37.0 s. The pill is on screen for only the last 2 s; bring it in at about 35 s if you prefer reach over sync. |
+
+**Outstanding before publication**
+1. Footage licences and sources: the aerial, beach and stock dance clips (flagged on screen in amber), plus releases for identifiable people, and the AI provider's usage terms for the AI clips.
+2. The AI-generated arrival shot shows a sign reading **"ACCRA INTERNATIONAL AIRPORT"**. Ghana's airport is **Kotoka International Airport**, and Ghanaian viewers will notice. Consider regenerating the shot, or accept it as illustrative.
+3. Approve the original score by ear, or supply a licensed track.
+4. Confirm both phone numbers, and which one (if either) is on WhatsApp.
+5. Confirm by ear the narration phrase choices and the take-order finding (V1 narration is reversed).
+6. Turn off review flags (`reviewFlags: false`) only after items 1–4 are cleared.
 
 ## 9. Reuse for the November series
 `src/kit/` is campaign-agnostic: `brand.ts` (colours, type, safe area, verified contacts), `Reveal`/`WordReveal`, `Headline`/`Accent`/`Label`/`Rule`, `DestinationLabel`, `BeatWord`, `Flash`/`LightSweep`/`Vignette`/`Scrim`, `EndCard` (props for kicker/title/CTA/timing), `ReviewFlags`, `Blur` and the `motion` easing set. The V2 transition engine (`src/v2/ShotV2.tsx`: whip, zoom-through, match, sweep, flash and brand wipe with per-shot camera moves) is driven entirely by a JSON timeline (`tools/v2_plan.py`). This supports:
