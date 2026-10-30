@@ -39,8 +39,7 @@ const Layer: React.FC<{ shot: ShotV2T; next?: ShotV2T; cam: Cam; start: number; 
       <Blur x={blurX} style={{ position: 'absolute', inset: 0 }}>
         <AbsoluteFill style={{ transform: `translate(${tx}%, ${ty}%) scale(${scale})`, transformOrigin: `${cam.ox ?? 50}% ${cam.oy ?? 45}%`, filter: filt || undefined }}>
           <OffthreadVideo src={staticFile(`${dir}/${shot.id}.mp4`)} muted style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          {/* local obscuring of inaccurate AI signage (moves with the camera because it lives inside the transformed layer) */}
-          {shot.signMask && <AbsoluteFill style={{ clipPath: `polygon(${shot.signMask.map(([x, y]) => `${x}% ${y}%`).join(', ')})`, backdropFilter: 'blur(26px) brightness(0.72) saturate(0.7)' }} />}
+          {/* shot.signMask is baked into the clip by tools/v2_prep.py (FFmpeg) – no live backdrop blur (too slow to render) */}
         </AbsoluteFill>
       </Blur>
     </AbsoluteFill>

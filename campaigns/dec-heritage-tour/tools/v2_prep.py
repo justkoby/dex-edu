@@ -21,8 +21,16 @@ def do(s):
     slow = any(sp < 1 for _, sp in s['ramp'])
     pre = f"{''.join(labels)}concat=n={len(labels)}:v=1:a=0" + (",minterpolate=fps=30:mi_mode=blend" if slow else "")
     fc = ';'.join(parts) + f';{pre},{chain(c, c["grade"], 0)}[out]'
+    extra_in = []
+    if s.get('signMask'):                                  # bake a local blur over inaccurate AI signage (feathered polygon mask)
+        from PIL import Image, ImageDraw, ImageFilter
+        mpath = f"{root}/work/{VER}_{s['id']}_mask.png"
+        m = Image.new('L', (1080, 1920), 0); ImageDraw.Draw(m).polygon([(x * 10.8, y * 19.2) for x, y in s['signMask']], fill=255)
+        m.filter(ImageFilter.GaussianBlur(14)).save(mpath); extra_in = ['-loop', '1', '-i', mpath]
+        fc = fc.replace('[out]', '[g]') + (';[g]split[ga][gb];[gb]boxblur=26:3,eq=brightness=-0.09:saturation=0.65[gbb];'
+              '[1:v]format=gray,scale=1080:1920[mk];[gbb][mk]alphamerge[gm];[ga][gm]overlay=format=auto,format=yuv420p[out]')
     out = f"{root}/public/{VER}/{s['id']}.mp4"
-    cmd = ['ffmpeg','-y','-v','error','-i',src,'-filter_complex',fc,'-map','[out]','-t',f"{s['out_dur']:.3f}",'-r','30','-an',
+    cmd = ['ffmpeg','-y','-v','error','-i',src,*extra_in,'-filter_complex',fc,'-map','[out]','-t',f"{s['out_dur']:.3f}",'-r','30','-an',
            '-c:v','libx264','-preset','slow','-crf','14','-pix_fmt','yuv420p','-color_primaries','bt709','-color_trc','bt709','-colorspace','bt709','-movflags','+faststart',out]
     r = subprocess.run(cmd, capture_output=True, text=True)
     return f"{s['id']:11s} {'OK' if r.returncode == 0 else 'FAIL ' + r.stderr[-300:]}"
