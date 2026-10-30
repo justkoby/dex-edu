@@ -49,4 +49,22 @@ Export: `out/Dexterity_HeritageTour_V3_INTERNAL-REVIEW.mp4`, 1080×1920, 30 fps,
 `Campaign.tsx` (Line with rise/drop/fromLeft/fromRight/track entrances, `rich()` highlight markup, Underline), `Subtitles.tsx` (word-synced, editorial paging, modes), `LocationPin.tsx` (LocationPin, FocusRing), `EndCardV3.tsx`, plus the existing transitions/effects (`v2/ShotV2.tsx` now takes a media folder and optional sign masks), `brand.ts` (TYPE.display, CONTACT.primaryLabel), `fonts.ts` (strict Bricolage loading).
 
 ## QA
-QA_V3
+Objective (`tools/qa.sh` on the master): 39.0 s, 1080×1920, 30 fps, H.264 High + AAC-LC; 0 black frames, no frozen video, no unintended silence; −14.0 LUFS integrated, LRA 3.5 LU, true peak −1.1 dBTP. Narration intelligibility from the final mix: 1.5 % mean WER.
+
+Visual: review sheets of one frame per second plus 28 transition and typography frames (`out/v3_final_*.jpg`). Fixes made during V3:
+- Subtitle word spacing.
+- Hook and end-card headline clipping.
+- Orphaned caption pages.
+- Pin label contrast.
+- The live sign blur, which timed out the renderer, moved to FFmpeg.
+
+**Not done:** real-time playback and listening. Nothing here was watched at speed or heard.
+
+Creative-director check:
+- **Hook in 2 s:** yes. "THIS" and "DECEMBER" land on the voice by 0.9 s, and the cut turns the headline into the terminal sign.
+- **Typography:** one family, sentence case, orange only on key words, nine different compositions. No outline or italic display type remains.
+- **Placement:** every headline sits in measured negative space. Faces, the suitcase, the drink and the plate are clear. Restaurant and journey shots carry captions only.
+- **Subtitles vs headlines:** captions switch to compact mode under every major headline and are hidden where nobody speaks.
+- **Repetition:** restaurant, beach and fort each appear once at length. The montage is all new moments.
+- **Known minor:** the "back to your roots." caption lingers about 0.5 s into the aerial before the pin lands; it does not overlap anything. Dancer and stock footage still has a different texture from the AI core.
+- **CTA:** one headline, one action, one large number, secondary details beneath. Readable at phone size.
