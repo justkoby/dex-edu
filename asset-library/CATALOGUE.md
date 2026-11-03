@@ -29,7 +29,8 @@ Index only – files stay in place under their original names (no duplicates). R
 
 | File | Tech | Suggested use | Licence / status |
 |---|---|---|---|
-| `Logo.svg` | 0.01 MB | Dexterity logo (orange #f37a20 / navy #283c8d) | Owned brand asset. |
+| `Logo.svg` | 0.01 MB | PREVIOUS Dexterity logo (orange #f37a20 / navy #283c8d) – superseded Nov 2026 by DEX-EDU-TOUR-logo.svg | Owned brand asset. |
+| `kakum scenes and logo/DEX-EDU-TOUR-logo.svg` | 0.01 MB | OFFICIAL logo from Nov 2026 (blue #043391 / orange #F77C02); artwork occupies x103–1003, y254–747 of the 1080² canvas – use src/kit/BrandLogo.tsx | Owned brand asset (client-supplied). |
 
 ## Budapest campaign
 
@@ -74,6 +75,17 @@ Index only – files stay in place under their original names (no duplicates). R
 | `videos for tour/Recording 2026-10-30 003533.mp4` | 1726x1190 · 30/1 · 8.92s · 10.04 MB | Aerial coastal fort + town (location unconfirmed). Used in draft v1 | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. |
 | `videos for tour/Recording 2026-10-30 003821.mp4` | 1818x1338 · 30/1 · 13.31s · 17.65 MB | Drummers; stylised/crushed after crop. EXCLUDED from v1; get a clean original | Screen recording of a Pexels video (per Dexterity, 2026-10-30); original Pexels URL not recorded – re-download the original for quality. Pexels (pexels.com) – Pexels licence: free for commercial use, no attribution required. Do not imply endorsement by identifiable people. Identifiable people. |
 | `videos for tour/Tour_guide_speaking_at_fortress_d8b8e221_1080p.mp4` | 1080x1920 · 24/1 · 5.97s · 7.55 MB | Generic illustrative heritage tour – NOT a verified location | AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider. |
+
+## Kakum National Park
+
+| File | Tech | Suggested use | Licence / status |
+|---|---|---|---|
+| `kakum scenes and logo/Joyful Rainforest Canopy Bridge Portrait.png` | 2.64 MB | Keyframe/reference still for the matching Kakum clip | AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider. |
+| `kakum scenes and logo/Rainforest Canopy Walkway Portrait.png` | 2.8 MB | Keyframe/reference still for the matching Kakum clip | AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider. |
+| `kakum scenes and logo/Smiling Walk Across the Rainforest Canopy Bridge.png` | 3.13 MB | Keyframe/reference still for the matching Kakum clip | AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider. |
+| `kakum scenes and logo/Traveller_smiling_on_canopy_walkway_cd902895_1080p.mp4` | 1080x1920 · 24/1 · 7.93s · 9.58 MB | Over-shoulder forest view, turns to camera smiling. Used V3K | AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum. |
+| `kakum scenes and logo/Woman_walking_on_canopy_walkway_87b222e5_1080p.mp4` | 1080x1920 · 24/1 · 7.93s · 13.74 MB | Medium: walking toward camera on the bridge. Used V4K | AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum. |
+| `kakum scenes and logo/Woman_walking_on_canopy_walkway_f1752b9d_1080p.mp4` | 1080x1920 · 24/1 · 7.93s · 17.67 MB | Wide: canopy walkway with platform tower, traveller walks toward camera. Used V3K + V4K | AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum. |
 
 ## Narration (Budapest)
 

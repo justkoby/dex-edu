@@ -6,8 +6,12 @@ import { Main } from './Main';
 import { HeritageTourV2 } from './v2/HeritageTourV2';
 import timelineV3 from './v3/timeline.v3.json';
 import { HeritageTourV3 } from './v3/HeritageTourV3';
+import timelineV3K from './v3k/timeline.v3k.json';
+import { HeritageTourV3K } from './v3k/HeritageTourV3K';
 import timelineV4 from './v4/timeline.v4.json';
 import { GroupChatV4 } from './v4/GroupChatV4';
+import timelineV4K from './v4k/timeline.v4k.json';
+import { GroupChatV4K } from './v4k/GroupChatV4K';
 
 export const Root: React.FC = () => (
   <>
@@ -20,8 +24,14 @@ export const Root: React.FC = () => (
       {/* subtitles on/off: --props='{"subtitles":false}' */}
       <Composition id="HeritageTourV3" component={HeritageTourV3} width={1080} height={1920} fps={timelineV3.fps} durationInFrames={timelineV3.totalFrames} defaultProps={{ subtitles: true, reviewFlags: false, withAudio: true }} />
     </Folder>
+    <Folder name="V3K">
+      <Composition id="HeritageTourV3K" component={HeritageTourV3K} width={1080} height={1920} fps={timelineV3K.fps} durationInFrames={timelineV3K.totalFrames} defaultProps={{ subtitles: true, reviewFlags: false, withAudio: true }} />
+    </Folder>
     <Folder name="V4">
       <Composition id="GroupChatV4" component={GroupChatV4} width={1080} height={1920} fps={timelineV4.fps} durationInFrames={timelineV4.totalFrames} defaultProps={{ withAudio: true }} />
+    </Folder>
+    <Folder name="V4K">
+      <Composition id="GroupChatV4K" component={GroupChatV4K} width={1080} height={1920} fps={timelineV4K.fps} durationInFrames={timelineV4K.totalFrames} defaultProps={{ withAudio: true }} />
     </Folder>
   </>
 );

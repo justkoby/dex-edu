@@ -27,13 +27,18 @@ META = {
  'videos for tour/6193112-hd_1080_1920_30fps.mp4': ('Student & lifestyle', 'Friends dancing, African prints. Dark; needs lift', 'Pexels – https://www.pexels.com/video/6193112/ – ' + PEX + ' Identifiable people.'),
  'videos for tour/6193113-hd_1080_1920_30fps.mp4': ('Student & lifestyle', 'Friends dancing, African prints. Dark; needs lift', 'Pexels – https://www.pexels.com/video/6193113/ – ' + PEX + ' Identifiable people.'),
  'audio/(Audio) Upbeat Background Music For Videos (No Copyright).m4a': ('Background music', 'Temporary placeholder only. Clipped source (+2 dBTP). Not Afro-cinematic', 'Licence UNVERIFIED ("No Copyright" label, no source/artist; not from Pexels). Used only in V1 internal draft; NOT used in V2/V3.'),
- 'Logo.svg': ('Brand assets', 'Dexterity logo (orange #f37a20 / navy #283c8d)', 'Owned brand asset.'),
+ 'Logo.svg': ('Brand assets', 'PREVIOUS Dexterity logo (orange #f37a20 / navy #283c8d) – superseded Nov 2026 by DEX-EDU-TOUR-logo.svg', 'Owned brand asset.'),
+ 'kakum scenes and logo/DEX-EDU-TOUR-logo.svg': ('Brand assets', 'OFFICIAL logo from Nov 2026 (blue #043391 / orange #F77C02); artwork occupies x103–1003, y254–747 of the 1080² canvas – use src/kit/BrandLogo.tsx', 'Owned brand asset (client-supplied).'),
+ 'kakum scenes and logo/Woman_walking_on_canopy_walkway_f1752b9d_1080p.mp4': ('Kakum National Park', 'Wide: canopy walkway with platform tower, traveller walks toward camera. Used V3K + V4K', 'AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum.'),
+ 'kakum scenes and logo/Traveller_smiling_on_canopy_walkway_cd902895_1080p.mp4': ('Kakum National Park', 'Over-shoulder forest view, turns to camera smiling. Used V3K', 'AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum.'),
+ 'kakum scenes and logo/Woman_walking_on_canopy_walkway_87b222e5_1080p.mp4': ('Kakum National Park', 'Medium: walking toward camera on the bridge. Used V4K', 'AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum.'),
 }
 def cat_for(p):
     if p.startswith('audio files for tour/'): return ('Narration (tour)', 'December tour voiceover – files are in REVERSE script order (see campaigns/dec-heritage-tour/docs/narration_transcript.md)', 'Project-owned voice recordings.')
     if p.startswith('BUDAPEST-VID/speech'): return ('Narration (Budapest)', 'Budapest study campaign speech notes', 'Client-recorded.')
     if p.startswith('BUDAPEST-VID/') : return ('Budapest campaign', 'Separate Budapest study-abroad campaign material', 'Mixed/unknown – confirm per file.')
     if p.startswith('Woman_answering'): return ('Budapest campaign', 'Budapest campaign AI clip', AI)
+    if p.startswith('kakum scenes and logo/') and p.endswith('.png'): return ('Kakum National Park', 'Keyframe/reference still for the matching Kakum clip', AI)
     if p.startswith('videos for tour/') and p.endswith('.png'): return ('Stills (AI keyframes)', 'Likely keyframe for matching AI clip; end-card/poster reference', AI)
     return ('Uncategorised', '', 'Unknown')
 ext = ('.mp4', '.m4a', '.ogg', '.png', '.jpg', '.jpeg', '.avif', '.webp', '.svg')

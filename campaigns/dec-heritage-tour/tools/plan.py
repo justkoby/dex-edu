@@ -5,6 +5,7 @@ AI_SUITCASE = V + 'Woman_walking_with_suitcase_at_8597bc26_1080p.mp4'
 # Each clip: file, crop=(x,y,w,h) in source px (None = already 9:16), src_matrix, flag (licence/source status), grade dict.
 # grade: bp/wp = input black/white point (0-255 luma-ish, applied per channel), gamma, sat, contrast, rgb_mult/mid shifts via colorbalance
 # (rs..bh = -1..1 shadow/mid/high balance), mood: 'heritage'|'coast'|None
+K = '../../kakum scenes and logo/'
 CLIPS = {
  'suitcase':  dict(file=AI_SUITCASE, flag='AI-generated (Dexterity-provided) – OK internal', grade=dict(bp=10, wp=235, gamma=1.18, sat=1.0, cb=dict(rm=-0.02, bm=0.02), mood=None)),
  'terminal':  dict(file=V+'Woman_walking_through_airport_te…_66bbda25_1080p.mp4', flag='AI-generated – OK internal', grade=dict(bp=40, wp=225, gamma=1.0, sat=0.95, cb=dict(bm=0.015), mood=None)),
@@ -21,6 +22,9 @@ CLIPS = {
  'fishing':   dict(file=V+'9694500-hd_1920_1080_24fps.mp4', crop=(60,0,608,1080), flag='Stock (source/licence UNVERIFIED)', grade=dict(bp=95, wp=210, gamma=1.0, sat=0.9, cb=dict(rm=0.02, bm=-0.02), mood=None)),
  'dance_a':   dict(file=V+'6193112-hd_1080_1920_30fps.mp4', flag='Stock (source/licence UNVERIFIED); identifiable people, no release', grade=dict(bp=14, wp=150, gamma=1.55, sat=0.88, cb=dict(rm=-0.03, bm=0.04), mood=None)),
  'dance_b':   dict(file=V+'6193113-hd_1080_1920_30fps.mp4', flag='Stock (source/licence UNVERIFIED); identifiable people, no release', grade=dict(bp=14, wp=125, gamma=1.6, sat=0.88, cb=dict(rm=-0.03, bm=0.04), mood=None)),
+ 'kakum_wide': dict(file=K+'Woman_walking_on_canopy_walkway_f1752b9d_1080p.mp4', flag='AI-generated (Dexterity-provided, Kakum canopy walkway depiction)', grade=dict(bp=24, wp=236, gamma=1.0, sat=0.9, cb=dict(rm=0.01, bm=-0.01), mood=None)),
+ 'kakum_smile': dict(file=K+'Traveller_smiling_on_canopy_walkway_cd902895_1080p.mp4', flag='AI-generated (Dexterity-provided, Kakum canopy walkway depiction)', grade=dict(bp=24, wp=236, gamma=1.0, sat=0.9, cb=dict(rm=0.01, bm=-0.01), mood=None)),
+ 'kakum_walk': dict(file=K+'Woman_walking_on_canopy_walkway_87b222e5_1080p.mp4', flag='AI-generated (Dexterity-provided, Kakum canopy walkway depiction)', grade=dict(bp=24, wp=236, gamma=1.0, sat=0.9, cb=dict(rm=0.01, bm=-0.01), mood=None)),
  'dancer':    dict(file=V+'6174521-hd_1080_1920_30fps.mp4', flag='Stock (source/licence UNVERIFIED); 720p source, identifiable person', grade=dict(bp=14, wp=72, gamma=1.7, sat=0.8, cb=dict(rm=-0.07, gm=0.02), mood=None)),
 }
 # Scene plan: ordered shots (clip, src_in, dur, transition-in). Last shot in each scene absorbs rounding so the scene fills its window.

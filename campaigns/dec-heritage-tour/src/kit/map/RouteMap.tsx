@@ -45,7 +45,7 @@ export const BusMarker: React.FC<{ x: number; y: number; heading: number; scale?
 );
 
 /** Map pin that drops onto (x,y) with a ripple; `label` sits beside it. */
-export const MapPin: React.FC<{ t: number; at: number; x: number; y: number; label: string; sub?: string }> = ({ t, at, x, y, label, sub }) => {
+export const MapPin: React.FC<{ t: number; at: number; x: number; y: number; label: string; sub?: string; labelSize?: number }> = ({ t, at, x, y, label, sub, labelSize = 64 }) => {
   if (t < at) return null;
   const d = prog(t, at, at + 0.4); const py = -120 * (1 - backOut(d, 1.6)); const rip = prog(t, at + 0.32, at + 0.95);
   const lab = expoOut(prog(t, at + 0.3, at + 0.75));
@@ -58,7 +58,7 @@ export const MapPin: React.FC<{ t: number; at: number; x: number; y: number; lab
       </svg>
       <div style={{ position: 'absolute', left: x + 60, top: y - 118, overflow: 'hidden', paddingRight: 10 }}>
         <div style={{ transform: `translateY(${(1 - lab) * 105}%)`, fontFamily: TYPE.display }}>
-          <div style={{ fontWeight: 800, fontSize: 64, color: '#fff', letterSpacing: '-0.03em', lineHeight: 1, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>{label}</div>
+          <div style={{ fontWeight: 800, fontSize: labelSize, color: '#fff', letterSpacing: '-0.03em', lineHeight: 1, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>{label}</div>
           {sub && <div style={{ fontWeight: 600, fontSize: 28, color: COLOR.orange, marginTop: 8 }}>{sub}</div>}
         </div>
       </div>

@@ -214,6 +214,13 @@ def tick():                                            # soft wooden 'pin drop' 
 for e in T.get('sfx_extra', []):                       # understated cues placed by the edit (V3)
     if e['type'] == 'tick': add('fx', tick(), e['at'], e.get('gain', 1.0), pan=-0.2)
     if e['type'] == 'swish': add('fx', whoosh(e.get('dur', 0.4), 1500, 11000), e['at'] - e.get('dur', 0.4) * 0.6, e.get('gain', 0.5), pan=e.get('pan', 0.0))
+    if e['type'] == 'forest':                          # rainforest canopy air + a few soft bird calls (V3K Kakum)
+        d = e.get('dur', 3.5); t = t_(d); bed = fnoise(d, 400, 7000) * (0.5 + 0.5 * np.sin(np.pi * np.clip(t / d, 0, 1))) * 0.05
+        add('fx', np.stack([bed, np.roll(bed, 900)]), e['at'], 1.0)
+        for k, (dt, f0, pn) in enumerate(((0.35, 2900, -0.5), (0.9, 3400, 0.4), (1.6, 2600, -0.2), (2.4, 3800, 0.6), (3.0, 3100, -0.4))):
+            if dt < d - 0.3:
+                tc = t_(0.16); f = f0 * (1 + 0.25 * np.sin(2 * np.pi * 9 * tc)) * (1 + 0.3 * tc / 0.16)
+                add('fx', np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * tc / 0.16) ** 2 * 0.045, e['at'] + dt, 1.0, pan=pn)
 
 # ---------------------------------------------------------------- reverb (send) and render
 def reverb(x, secs=1.9, mix=0.22):

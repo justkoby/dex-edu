@@ -6,7 +6,7 @@ m = sys.argv[1]; root = os.path.abspath(os.path.join(os.path.dirname(__file__), 
 mix = sys.argv[2] if len(sys.argv) > 2 else f'{root}/public/v2/mix_v2.wav'
 rec = sherpa_onnx.OfflineRecognizer.from_whisper(encoder=f'{m}/small.en-encoder.onnx', decoder=f'{m}/small.en-decoder.onnx',
         tokens=f'{m}/small.en-tokens.txt', language='en', task='transcribe', num_threads=4, tail_paddings=800)
-T = json.load(open(f'{root}/src/v2/timeline.v2.json')); ph = {p['id']: p for p in json.load(open(f'{root}/work/v2/vo_phrases.json'))}
+VER = os.environ.get('DEX_VER', 'v2'); T = json.load(open(f'{root}/src/{VER}/timeline.{VER}.json')); ph = {p['id']: p for p in json.load(open(f'{root}/work/v2/vo_phrases.json'))}
 x = np.frombuffer(subprocess.run(['ffmpeg','-v','error','-i',mix,'-f','f32le','-ac','1','-ar','16000','-'],capture_output=True).stdout, np.float32)
 w = lambda t: re.sub(r"[^a-z ]", "", t.lower()).split()
 def wer(ref, hyp):

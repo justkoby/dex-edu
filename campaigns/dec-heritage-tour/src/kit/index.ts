@@ -17,3 +17,5 @@ export * from './chat/Chat';
 export * from './chat/LocationCard';
 export * from './map/RouteMap';
 export * from './cta/EndCardV4';
+export * from './BrandLogo';
+export * from './cta/CTACard';

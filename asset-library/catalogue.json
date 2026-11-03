@@ -77,8 +77,15 @@
  {
   "path": "Logo.svg",
   "category": "Brand assets",
-  "suggested_use": "Dexterity logo (orange #f37a20 / navy #283c8d)",
+  "suggested_use": "PREVIOUS Dexterity logo (orange #f37a20 / navy #283c8d) – superseded Nov 2026 by DEX-EDU-TOUR-logo.svg",
   "licence_note": "Owned brand asset.",
+  "size_mb": 0.01
+ },
+ {
+  "path": "kakum scenes and logo/DEX-EDU-TOUR-logo.svg",
+  "category": "Brand assets",
+  "suggested_use": "OFFICIAL logo from Nov 2026 (blue #043391 / orange #F77C02); artwork occupies x103–1003, y254–747 of the 1080² canvas – use src/kit/BrandLogo.tsx",
+  "licence_note": "Owned brand asset (client-supplied).",
   "size_mb": 0.01
  },
  {
@@ -344,6 +351,60 @@
   "licence_note": "AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider.",
   "size_mb": 7.55,
   "duration_s": 5.97,
+  "has_audio": true,
+  "resolution": "1080x1920",
+  "fps": "24/1"
+ },
+ {
+  "path": "kakum scenes and logo/Joyful Rainforest Canopy Bridge Portrait.png",
+  "category": "Kakum National Park",
+  "suggested_use": "Keyframe/reference still for the matching Kakum clip",
+  "licence_note": "AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider.",
+  "size_mb": 2.64
+ },
+ {
+  "path": "kakum scenes and logo/Rainforest Canopy Walkway Portrait.png",
+  "category": "Kakum National Park",
+  "suggested_use": "Keyframe/reference still for the matching Kakum clip",
+  "licence_note": "AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider.",
+  "size_mb": 2.8
+ },
+ {
+  "path": "kakum scenes and logo/Smiling Walk Across the Rainforest Canopy Bridge.png",
+  "category": "Kakum National Park",
+  "suggested_use": "Keyframe/reference still for the matching Kakum clip",
+  "licence_note": "AI-generated for Dexterity (generation-tool terms not recorded) – confirm usage terms with the generation provider.",
+  "size_mb": 3.13
+ },
+ {
+  "path": "kakum scenes and logo/Traveller_smiling_on_canopy_walkway_cd902895_1080p.mp4",
+  "category": "Kakum National Park",
+  "suggested_use": "Over-shoulder forest view, turns to camera smiling. Used V3K",
+  "licence_note": "AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum.",
+  "size_mb": 9.58,
+  "duration_s": 7.93,
+  "has_audio": true,
+  "resolution": "1080x1920",
+  "fps": "24/1"
+ },
+ {
+  "path": "kakum scenes and logo/Woman_walking_on_canopy_walkway_87b222e5_1080p.mp4",
+  "category": "Kakum National Park",
+  "suggested_use": "Medium: walking toward camera on the bridge. Used V4K",
+  "licence_note": "AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum.",
+  "size_mb": 13.74,
+  "duration_s": 7.93,
+  "has_audio": true,
+  "resolution": "1080x1920",
+  "fps": "24/1"
+ },
+ {
+  "path": "kakum scenes and logo/Woman_walking_on_canopy_walkway_f1752b9d_1080p.mp4",
+  "category": "Kakum National Park",
+  "suggested_use": "Wide: canopy walkway with platform tower, traveller walks toward camera. Used V3K + V4K",
+  "licence_note": "AI-generated depiction (client-supplied) – illustrative, not filmed at Kakum.",
+  "size_mb": 17.67,
+  "duration_s": 7.93,
   "has_audio": true,
   "resolution": "1080x1920",
   "fps": "24/1"

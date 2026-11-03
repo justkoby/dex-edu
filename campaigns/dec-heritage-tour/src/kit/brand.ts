@@ -1,4 +1,6 @@
 // Dexterity brand system shared by every campaign composition.
+/** Dexterity Edu Tour identity (Nov 2026 client update) – sampled from DEX-EDU-TOUR-logo.svg. */
+export const EDU = { blue: '#043391', blueDeep: '#021E5C', orange: '#F77C02', white: '#FFFFFF', ink: '#061A4A' };
 export const COLOR = {
   orange: '#F37A20', navy: '#283C8D', navyDeep: '#141E4D', ink: '#0B1030', cream: '#FBF3E6', white: '#FFFFFF',
 };
@@ -17,7 +19,8 @@ export const SAFE = { top: 240, bottom: 1490, left: 84, right: 996 };
 export const CONTACT = {
   phones: ['0244489721', '0303984034'],   // [0] mobile = primary CTA line; which number carries WhatsApp is NOT documented
   primaryLabel: 'Call or message',
-  website: 'dexterityedutravel.com',
+  website: 'dexterityedutour.com',            // client update Nov 2026 (was dexterityedutravel.com)
+  websiteUrl: 'https://dexterityedutour.com/',
   source: 'feature/dexterity-skit · src/config/brand.ts (d2ad658)',
 };
 export const formatGhPhone = (p: string) => p.replace(/^(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3');

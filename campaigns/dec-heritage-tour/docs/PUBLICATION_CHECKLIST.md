@@ -11,8 +11,8 @@ Status as of 2026-10-30.
 | Narration (7 WhatsApp voice notes) | Project-owned recordings. |
 | Music + sound design (V2/V3) | Original score and SFX synthesised in-project (`audio/v2_score.py`); no samples or third-party material. |
 | Fonts | Bricolage Grotesque, Plus Jakarta Sans, Instrument Serif: SIL Open Font License 1.1 (licences in `public/fonts/`). |
-| Logo | Dexterity's own `Logo.svg`. |
-| Contact details | 024 448 9721 · 030 398 4034 · dexterityedutravel.com, the same as the earlier Dexterity skit / motion videos (`feature/dexterity-skit*`, `src/config/brand.ts`). |
+| Logo | **DEX-EDU-TOUR-logo.svg** (client-supplied Nov 2026) in V3K/V4K; the previous `Logo.svg` remains only in the earlier versions. |
+| Contact details | Website **dexterityedutour.com** (client update Nov 2026; replaces dexterityedutravel.com in V3K/V4K). Phones 024 448 9721 · 030 398 4034, the same as the earlier Dexterity skit / motion videos (`feature/dexterity-skit*`, `src/config/brand.ts`). |
 
 ## Open items before publishing
 1. **Which number carries WhatsApp?** (V4's CTA labels 024 448 9721 as the WhatsApp line, per the V4 brief and the earlier skit's WhatsApp action.) The earlier videos list both numbers without assigning WhatsApp. V3 shows 024 448 9721 (mobile) as the primary line with the neutral label "Call or message". If WhatsApp is confirmed for it, the label can read "Call or WhatsApp" (`src/kit/brand.ts → CONTACT.primaryLabel`).
@@ -23,7 +23,8 @@ Status as of 2026-10-30.
 6. **AI airport shot.** The inaccurate "ACCRA INTERNATIONAL AIRPORT" lettering is blurred out and covered by the V3 headline. Other small AI signage in the background is illegible gibberish at phone size. A new generation would remove the issue entirely.
 7. **Narration.** The phrase choice and the reverse-order finding should be confirmed by ear (`docs/narration_transcript.md`).
 
+9. **Kakum footage** (V3K/V4K) is AI-generated (client-supplied) and illustrative of the canopy walkway, not filmed on site. The labels name the park only. See `CLIENT_REVISION_KAKUM_BRAND.md` for authentic shots to source.
 8. **V4 map**: route geometry is Natural Earth (public domain); "Cape Coast · Central Region, Ghana" is accurate geography. The heritage footage revealed from the pin is illustrative.
 
-## Not used in V2/V3/V4
+## Not used in V2/V3/V4/V3K/V4K
 `audio/(Audio) Upbeat Background Music For Videos (No Copyright).m4a`: not from Pexels, licence unverified. Used only in the V1 internal draft.
