@@ -1,0 +1,4 @@
+
+# third-party music must never be committed
+*.mp3
+**/local-music/

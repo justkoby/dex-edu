@@ -14,3 +14,8 @@ public/fonts/*.woff2.tmp
 out/*/
 public/v*/*.mp4
 public/v*/*.wav
+
+# third-party music: local only, never committed (see docs/MUSIC_COMFORT.md)
+local-music/
+*.mp3
+work/music/
