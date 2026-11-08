@@ -7,5 +7,5 @@
  "gain": [[0, 0], [28.3, 0], [28.6, -2.5], [31.4, -2.5], [31.6, 0.5], [34.5, 0.5]],
  "music_lufs": -15,
  "fx": "work/v4c/score_fx.wav", "fx_db": -1,
- "target_lufs": -14, "true_peak": -1.2, "out": "public/v4c/mix_v4c_comfort.wav"
+ "target_lufs": -14, "true_peak": -1.6, "out": "public/v4c/mix_v4c_comfort.wav"
 }
