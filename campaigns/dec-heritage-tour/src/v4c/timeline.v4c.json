@@ -1,0 +1,269 @@
+{
+ "fps": 30,
+ "bpm": 99.0,
+ "song_in": 85.81,
+ "total": 34.5,
+ "totalFrames": 1035,
+ "keys": {
+  "tap": 6.057,
+  "expand": 6.057,
+  "expandEnd": 6.663,
+  "wheels": 8.481,
+  "shrinkA": 9.693,
+  "shrinkAEnd": 10.905,
+  "depart": 11.511,
+  "arrive": 15.148,
+  "pin": 15.754,
+  "dive": 16.36,
+  "diveEnd": 16.966,
+  "gShrink": 18.784,
+  "gShrinkEnd": 19.39,
+  "connect": 19.39,
+  "kpin": 19.996,
+  "kglide": 19.996,
+  "kdive": 20.602,
+  "kdiveEnd": 21.814,
+  "k2": 23.026,
+  "r1": 24.238,
+  "r2": 25.45,
+  "c1": 26.662,
+  "r3": 27.875,
+  "photo": 28.481,
+  "photoEnd": 29.087,
+  "morph": 31.511,
+  "morphEnd": 32.117
+ },
+ "shots": [
+  {
+   "id": "a1_arrival",
+   "clip": "suitcase",
+   "src": 0.5,
+   "t0": 6.057,
+   "t1": 8.481,
+   "pre": 0.1,
+   "post": 0.0,
+   "crop": [
+    170,
+    480,
+    810,
+    1440
+   ],
+   "flag": "AI-generated (Dexterity-provided) \u2013 OK internal",
+   "ramp": [
+    [
+     2.624,
+     1.0
+    ]
+   ],
+   "out_dur": 2.624
+  },
+  {
+   "id": "a2_wheels",
+   "clip": "terminal",
+   "src": 1.0,
+   "t0": 8.481,
+   "t1": 9.693,
+   "pre": 0.0,
+   "post": 1.3,
+   "crop": [
+    215,
+    560,
+    765,
+    1360
+   ],
+   "flag": "AI-generated \u2013 OK internal",
+   "ramp": [
+    [
+     2.612,
+     1.0
+    ]
+   ],
+   "out_dur": 2.612
+  },
+  {
+   "id": "g1_guide",
+   "clip": "guide",
+   "src": 0.0,
+   "t0": 16.966,
+   "t1": 18.784,
+   "pre": 0.65,
+   "post": 0.7,
+   "flag": "AI-generated \u2013 OK internal (location unverified, not named)",
+   "ramp": [
+    [
+     3.268,
+     1.0
+    ]
+   ],
+   "out_dur": 3.268
+  },
+  {
+   "id": "k1_canopy",
+   "clip": "kakum_wide",
+   "src": 0.3500000000000001,
+   "t0": 21.814,
+   "t1": 23.026,
+   "pre": 1.25,
+   "post": 0.0,
+   "flag": "AI-generated (Dexterity-provided, Kakum canopy walkway depiction)",
+   "ramp": [
+    [
+     2.562,
+     1.0
+    ]
+   ],
+   "out_dur": 2.562
+  },
+  {
+   "id": "k2_walk",
+   "clip": "kakum_walk",
+   "src": 2.0,
+   "t0": 23.026,
+   "t1": 24.238,
+   "pre": 0.0,
+   "post": 0.35,
+   "flag": "AI-generated (Dexterity-provided, Kakum canopy walkway depiction)",
+   "ramp": [
+    [
+     1.662,
+     1.0
+    ]
+   ],
+   "out_dur": 1.662
+  },
+  {
+   "id": "r1_table",
+   "clip": "restaurant",
+   "src": 0.0,
+   "t0": 24.238,
+   "t1": 25.45,
+   "pre": 0.3,
+   "post": 0.35,
+   "flag": "AI-generated \u2013 OK internal",
+   "ramp": [
+    [
+     1.962,
+     1.0
+    ]
+   ],
+   "out_dur": 1.962
+  },
+  {
+   "id": "r2_beach",
+   "clip": "palms",
+   "src": 0.2,
+   "t0": 25.45,
+   "t1": 26.662,
+   "pre": 0.3,
+   "post": 0.35,
+   "flag": "UNVERIFIED screen-recording of third-party footage",
+   "ramp": [
+    [
+     1.962,
+     1.0
+    ]
+   ],
+   "out_dur": 1.962
+  },
+  {
+   "id": "c1_dance",
+   "clip": "dance_a",
+   "src": 0.10000000000000003,
+   "t0": 26.662,
+   "t1": 27.875,
+   "pre": 0.3,
+   "post": 0.35,
+   "flag": "Stock (source/licence UNVERIFIED); identifiable people, no release",
+   "ramp": [
+    [
+     1.963,
+     1.0
+    ]
+   ],
+   "out_dur": 1.963
+  },
+  {
+   "id": "r3_friends",
+   "clip": "dance_b",
+   "src": 3.6,
+   "t0": 27.875,
+   "t1": 28.481,
+   "pre": 0.0,
+   "post": 6.1,
+   "flag": "Stock (source/licence UNVERIFIED); identifiable people, no release",
+   "ramp": [
+    [
+     6.806,
+     1.0
+    ]
+   ],
+   "out_dur": 6.806
+  }
+ ],
+ "downbeats": [
+  2.421,
+  4.845,
+  7.269,
+  9.693,
+  12.117,
+  14.542,
+  16.966,
+  19.39,
+  21.814,
+  24.238,
+  26.662,
+  29.087,
+  31.511,
+  33.935
+ ],
+ "chat": [
+  {
+   "at": 0.602,
+   "side": "out",
+   "text": "Girl, December plans?",
+   "typing": 0.0
+  },
+  {
+   "at": 1.815,
+   "side": "in",
+   "text": "I'm thinking Ghana!",
+   "typing": 0.61
+  },
+  {
+   "at": 3.027,
+   "side": "out",
+   "text": "Wait, Ghana Ghana?",
+   "typing": 0.0
+  },
+  {
+   "at": 4.239,
+   "side": "in",
+   "text": "Heritage + beach vibes!",
+   "typing": 0.61
+  },
+  {
+   "at": 4.845,
+   "side": "in",
+   "text": "@location",
+   "typing": 0.3
+  },
+  {
+   "at": 29.087,
+   "side": "in",
+   "text": "@photo",
+   "typing": 0.0
+  },
+  {
+   "at": 29.693,
+   "side": "out",
+   "text": "So we're going?",
+   "typing": 0.0
+  },
+  {
+   "at": 30.905,
+   "side": "in",
+   "text": "Already booking with Dexterity!",
+   "typing": 0.61
+  }
+ ]
+}

@@ -26,9 +26,10 @@ export const layoutChat = (msgs: Msg[], t: number, fps: number) => {
   for (let i = msgs.length - 1; i >= 0; i--) {
     const m = msgs[i]; if (t < m.at) continue;
     const k = springAt(t, m.at, fps); const h = msgH(m); const w = msgW(m);
-    y -= (h + CHAT_GEOM.gap) * clamp(k * 1.15);
+    const top = y - h - CHAT_GEOM.gap;               // a landing bubble sits at its final slot (never below the input bar)…
+    y -= (h + CHAT_GEOM.gap) * clamp(k * 1.15);      // …while the stack above scrolls up with the spring
     const x = m.side === 'out' ? 1080 - CHAT_GEOM.right - w : CHAT_GEOM.left;
-    items.unshift({ m, y, x, w, h, k });
+    items.unshift({ m, y: Math.min(top, y), x, w, h, k });
   }
   return { items, typing };
 };

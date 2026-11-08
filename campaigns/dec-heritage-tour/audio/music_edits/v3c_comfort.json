@@ -1,0 +1,11 @@
+{
+ "_doc": "V3C Heritage: 'Comfort' excerpt B – intro -> pickup -> groove entry -> verse -> chorus 1, one continuous piece. Song 1.57 s is video 0.",
+ "source_env": "DEX_MUSIC_COMFORT", "source": "local-music/Comfort.mp3",
+ "analysis": "work/music/comfort_analysis.json", "timeline": "src/v3c/timeline.v3c.json",
+ "segments": [{"src_in": 1.57, "src_out": 40.62, "at": 0.0}],
+ "fade_in": 0.35, "fade_out": 1.4,
+ "gain": [[0, 0], [18.5, 0], [19.9, 1.0], [23.3, 1.0], [23.6, 0], [28.3, 0], [28.48, 2.0], [33.2, 2.0], [33.5, 0], [39, 0]],
+ "music_lufs": -17, "duck": {"depth_db": -11, "presence_db": -7, "presence_band": [300, 4000], "release": 0.25, "hold": 0.15},
+ "vo_dir": "work/v3k", "fx": "work/v3c/score_fx.wav", "fx_db": -3,
+ "target_lufs": -14, "true_peak": -1.2, "out": "public/v3c/mix_v3c_comfort.wav"
+}

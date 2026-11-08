@@ -1,0 +1,11 @@
+{
+ "_doc": "V4C Group Chat: 'Comfort' excerpt A – pickup hit (bar 35) -> chorus 2 -> one-bar breakdown -> groove return, one continuous piece. Song 85.81 s is video 0.",
+ "source_env": "DEX_MUSIC_COMFORT", "source": "local-music/Comfort.mp3",
+ "analysis": "work/music/comfort_analysis.json", "timeline": "src/v4c/timeline.v4c.json",
+ "segments": [{"src_in": 85.81, "src_out": 120.36, "at": 0.0}],
+ "fade_in": 0.012, "fade_out": 1.1,
+ "gain": [[0, 0], [28.3, 0], [28.6, -2.5], [31.4, -2.5], [31.6, 0.5], [34.5, 0.5]],
+ "music_lufs": -15,
+ "fx": "work/v4c/score_fx.wav", "fx_db": -1,
+ "target_lufs": -14, "true_peak": -1.2, "out": "public/v4c/mix_v4c_comfort.wav"
+}

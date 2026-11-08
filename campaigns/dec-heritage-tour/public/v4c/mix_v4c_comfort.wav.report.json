@@ -1,0 +1,18 @@
+{
+ "source": "Comfort.mp3",
+ "source_lufs": -8.07,
+ "source_true_peak": 2.15,
+ "pieces": [
+  {
+   "src_in": 85.81,
+   "src_out": 120.36,
+   "at": 0.0,
+   "length": 34.55,
+   "src_in_requested": 85.81,
+   "src_out_requested": 120.36
+  }
+ ],
+ "master_lufs": -14.04,
+ "master_true_peak": -1.23,
+ "out": "public/v4c/mix_v4c_comfort.wav"
+}

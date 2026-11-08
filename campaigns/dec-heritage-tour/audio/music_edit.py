@@ -75,9 +75,15 @@ if C.get('vo_dir') and T.get('vo'):
     D = C.get('duck', {}); sm = lambda s_, n_: np.convolve(s_, np.ones(n_) / n_, 'same')
     rms = np.sqrt(sm(vo[0] ** 2, int(0.04 * SR)) + 1e-12); act = (20 * np.log10(rms) > D.get('threshold_db', -45)).astype(float)
     act = np.maximum.reduce([np.roll(act, k) for k in range(0, int(D.get('hold', 0.15) * SR), 480)])
-    duck = 10 ** (D.get('depth_db', -10) * sm(act, int(D.get('release', 0.25) * SR)) / 20)
+    act_s = sm(act, int(D.get('release', 0.25) * SR))
+    duck = 10 ** (D.get('depth_db', -10) * act_s / 20)
+    if D.get('presence_db'):                        # dynamic-EQ ducking: extra cut of the song's vocal-presence band under narration
+        lo, hi = D.get('presence_band', [300, 4000]); F = np.fft.rfftfreq(N, 1 / SR)
+        spec = np.fft.rfft(bed, axis=1); m = ((F >= lo) & (F <= hi)).astype(np.float32)
+        mid = np.fft.irfft(spec * m, N, axis=1).astype(np.float32); rest = bed - mid
+        bed = rest + mid * 10 ** (D['presence_db'] * act_s / 20)
     bed *= duck
-    report['duck_depth_db'] = D.get('depth_db', -10)
+    report['duck_depth_db'] = D.get('depth_db', -10); report['duck_presence_db'] = D.get('presence_db', 0)
 fx = np.zeros((2, N), np.float32)
 if C.get('fx'):
     f = dec(os.path.join(root, C['fx'])); f = np.pad(f, ((0, 0), (0, max(0, N - f.shape[1]))))[:, :N]; fx = f * 10 ** (C.get('fx_db', 0) / 20)

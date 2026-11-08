@@ -26,5 +26,7 @@ Status as of 2026-10-30.
 9. **Kakum footage** (V3K/V4K) is AI-generated (client-supplied) and illustrative of the canopy walkway, not filmed on site. The labels name the park only. See `CLIENT_REVISION_KAKUM_BRAND.md` for authentic shots to source.
 8. **V4 map**: route geometry is Natural Earth (public domain); "Cape Coast · Central Region, Ghana" is accurate geography. The heritage footage revealed from the pin is illustrative.
 
+10. **"Comfort" (Mr Eazi ft. MOLIY)** in V3C/V4C is a commercial recording, used for internal review only and kept local-only (not in git). Publishing needs a sync licence, or posting with the in-app platform sound where the account type allows it. The V3K/V4K versions with the original score remain the cleared alternatives.
+
 ## Not used in V2/V3/V4/V3K/V4K
 `audio/(Audio) Upbeat Background Music For Videos (No Copyright).m4a`: not from Pexels, licence unverified. Used only in the V1 internal draft.
