@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Character } from "./Character";
+import { CharacterFlat as Character } from "./CharacterFlat";
 import { ARMS, ArmsName, BODY0, FACES, FaceName } from "./poses";
 
 /** Model sheet: every expression and arm pose of the rig on one page – the consistency reference for this project. */

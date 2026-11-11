@@ -7,6 +7,31 @@ or the original asset folders; no AI voice, no voice cloning.
 
 ---
 
+## LATEST — character v3, flat vector (this is the current state; it supersedes the v2 section below)
+
+Client reviewed the v2 test (supplied layered artwork) and was still not satisfied. Decision: **use a flat vector style close to
+`character-concept/references/ref-4-flat-vector-APPROVED-STYLE.webp` and replace the initial character.**
+
+- **Character v3:** `src/rig/CharacterFlat.tsx` — solid shapes, no outlines, one shadow tone, thin fold lines. High-top fade with a
+  curly edge, white ringer tee with navy trim, navy trousers, dark smartwatch; winter outfit included. Original design, not a copy.
+- **Drop-in:** same props, pose/expression libraries (`poses.ts`) and engine (`perform.ts`) as the first rig, so all five scenes
+  use it with no scene changes. Switch in `src/components/Actor.tsx`: `CHARACTER_STYLE = "flat"` (set `"v1"` for the old look).
+- **Deliverables:** `preview/netherlands-2027-draft-v2-flat-character.mp4` (full 65 s, same narration/SFX/music),
+  `docs/contact-sheet-draft-v2.jpg`, `docs/character-v3-flat-model-sheet.png`. Also now rendered: provisional website
+  `dexterityeduconsult.com` and the generic Wittenborg card label.
+- **Kept for comparison:** draft v1 (`preview/netherlands-2027-draft-v1.mp4`, `src/rig/Character.tsx`), the v2 experiment
+  (`src/character2/`, `preview/scene1-character-v2-test.mp4`), the A/B/C options (`character-options/`).
+
+**NOT yet done in draft v2 (earlier feedback still open — do these after the flat style is approved):**
+1. Acting is still the v1 performance: too much smiling, repeated two-hand gestures. Re-key `perfN` in each scene to the
+   per-scene emotions in section 2 (scene 1: frustrated/skeptical… ). `src/character2/Scene1Test.tsx` `keys1` is a good beat map for scene 1.
+2. Camera is still mostly one medium shot. Add close-ups / push-ins / wider shots per scene (see the camera in `Scene1Test.tsx`).
+3. Scene-2 map pin still says "Apeldoorn" (`NLMap.tsx`).
+4. Backdrops still use soft gradients/vignette (`Stage.tsx` `Studio`); consider flattening them to match the character.
+5. Placeholder music, provisional website/phones/tuition, rights check, optional re-records — unchanged (sections 2, 4, 6).
+
+---
+
 ## UPDATE — character v2 from supplied artwork (supersedes the "blocked on a character image" status above)
 
 The client supplied layered character art in `../NETHERLANDS/SCENE-01-MONEY/` (merged from `main`). It is now the character.

@@ -72,11 +72,11 @@ export const perf5: Performance = {
     { t: GRAB, y: -46, sy: 1.05, d: 0.14, ease: "out" },
     { t: OPEN, y: 30, sy: 0.94, d: 0.14, ease: "out" },
     { t: OPEN + 0.16, y: 1100, sy: 1, d: 0.3, ease: "soft" }, // ducks out of frame as the brand screen takes over
-    { t: UP, y: 170, d: 0.3 }, // pops back up, a little lower so the contact details stay clear
+    { t: UP, y: 200, d: 0.3 }, // pops back up, a little lower so the contact details stay clear
     { t: C.sharp - 0.2, hrot: 6, nod: 0.6, d: 0.25, ease: "soft" },
     { t: C.sharp + 0.75, hrot: 0, nod: 0, d: 0.2 },
-    { t: C.end + 0.1, y: 146, d: 0.12, ease: "out" },
-    { t: C.end + 0.25, y: 170, d: 0.3 },
+    { t: C.end + 0.1, y: 176, d: 0.12, ease: "out" },
+    { t: C.end + 0.25, y: 200, d: 0.3 },
   ],
 };
 

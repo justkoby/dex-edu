@@ -1,8 +1,15 @@
 import React from "react";
 import { Character, Winter } from "../rig/Character";
+import { CharacterFlat } from "../rig/CharacterFlat";
 import { Performance, perform } from "../rig/perform";
 import { envAt } from "../data/tl";
 import { H, W } from "../config/brand";
+
+/**
+ * Which character drawing the whole film uses. "flat" = v3 flat-vector character (current, client-approved style);
+ * "v1" = the first pseudo-3D rig (kept for comparison – set this back to re-render the original look).
+ */
+export const CHARACTER_STYLE = "flat" as "flat" | "v1";
 
 /** The character on stage: evaluates a Performance at time t (voice-driven) and draws the rig. */
 export const Actor: React.FC<{
@@ -16,8 +23,8 @@ export const Actor: React.FC<{
           <feDropShadow dx="0" dy="14" stdDeviation="18" floodColor="#1B0F08" floodOpacity="0.28" />
         </filter>
       </defs>
-      <g transform={`translate(${x} ${y}) scale(${scale})`} filter="url(#actorShadow)">
-        <Character body={r.body} face={r.face} arms={r.arms} talk={r.talk} viseme={r.viseme} blink={r.blink} winter={winter} cold={cold} frame={t * 30} />
+      <g transform={`translate(${x} ${y}) scale(${scale})`} filter={CHARACTER_STYLE === "v1" ? "url(#actorShadow)" : undefined}>
+        {CHARACTER_STYLE === "flat" ? <CharacterFlat body={r.body} face={r.face} arms={r.arms} talk={r.talk} viseme={r.viseme} blink={r.blink} winter={winter} cold={cold} frame={t * 30} /> : <Character body={r.body} face={r.face} arms={r.arms} talk={r.talk} viseme={r.viseme} blink={r.blink} winter={winter} cold={cold} frame={t * 30} />}
       </g>
     </svg>
   );

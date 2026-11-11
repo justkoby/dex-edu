@@ -5,7 +5,7 @@ React + TypeScript + [Remotion](https://remotion.dev) · 1080×1920 · 30 fps ·
 
 > **Resuming this project? Read [`NEXT_STEPS.md`](NEXT_STEPS.md) first** — status, approved direction, and what to do next.
 
-**Preview:** `preview/netherlands-2027-draft-v1.mp4` · contact sheet: `docs/contact-sheet-draft-v1.jpg` · character model sheet: `docs/rig-model-sheet.png`
+**Preview (current):** `preview/netherlands-2027-draft-v2-flat-character.mp4` · first draft kept at `preview/netherlands-2027-draft-v1.mp4` · contact sheet: `docs/contact-sheet-draft-v1.jpg` · character model sheet: `docs/rig-model-sheet.png`
 **Reviews:** [`docs/AUDIO_REVIEW.md`](docs/AUDIO_REVIEW.md) · [`docs/PRODUCTION_REVIEW.md`](docs/PRODUCTION_REVIEW.md) (open questions, missing assets, limitations)
 
 Nothing in the earlier video projects (other branches) or in the original asset folders is modified; this folder is self-contained.
