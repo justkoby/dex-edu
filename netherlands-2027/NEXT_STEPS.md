@@ -7,6 +7,25 @@ or the original asset folders; no AI voice, no voice cloning.
 
 ---
 
+## CURRENT DIRECTION — "stills" approach with the navy-polo 3D character (supersedes ALL character sections below)
+
+Client decision after draft v2: **stop rigging the character.** Use complete character illustrations per emotional beat
+(the Stable Plus method) and the supplied **navy-polo 3D cartoon character** as the identity. Do NOT rebuild him from the
+SVG parts in `NETHERLANDS/SCENE-01-MONEY/`. Lip-sync not required. Keep narration, music, SFX, brand assets, story order.
+
+- Source images: `character-concept/stills-source/` (presenting-smile, thinking – transparent; plus one on a room background).
+- Plan + shot list + list of images still needed: **`docs/SCENE1_STILLS_PLAN.md`**.
+- Proof built: `preview/scene1-stills-approach-proof.mp4` (composition `Scene1Stills`, `src/stills/Scene1Stills.tsx`) – all of
+  Scene 1 on the existing audio using only the two supplied cut-outs; three shots use stand-ins (flagged in the plan).
+- The Stable Plus project is not in this repository; the approach was taken from the client's screen recording
+  (`character-concept/references/ref-5-stable-plus-animation-approach-sheet.jpg`).
+- **Next:** client supplies images S1-A, S1-B, S1-C (and optional S1-D) → swap them into `SHOTS` → re-render the Scene 1
+  preview → on approval, plan and build scenes 2–5 the same way (≈14 more images). The existing graphics components
+  (map, cards, winter, CTA) and the timeline are reused; `Actor`/rigs are not.
+- Kept for comparison, no longer the direction: draft v1 (first rig), draft v2 (flat character), `src/character2/` test.
+
+---
+
 ## LATEST — character v3, flat vector (this is the current state; it supersedes the v2 section below)
 
 Client reviewed the v2 test (supplied layered artwork) and was still not satisfied. Decision: **use a flat vector style close to
