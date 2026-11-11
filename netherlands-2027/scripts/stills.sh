@@ -10,7 +10,7 @@ npx remotion bundle src/index.ts --out-dir out/.bundle >/dev/null 2>&1
 i=0; pids=()
 for t in "$@"; do
   f=$(python3 -c "print(round($t*30))"); n=$(printf "%03d" $i)
-  npx remotion still out/.bundle Netherlands2027 "$tmp/$n.jpg" --frame="$f" --scale=0.4 --image-format=jpeg --log=error >/dev/null 2>&1 &
+  npx remotion still out/.bundle "${COMP:-Netherlands2027}" "$tmp/$n.jpg" --frame="$f" --scale=0.4 --image-format=jpeg --log=error >/dev/null 2>&1 &
   pids+=($!); i=$((i+1)); if (( i % 4 == 0 )); then wait "${pids[@]}"; pids=(); fi
 done
 wait

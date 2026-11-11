@@ -7,7 +7,40 @@ or the original asset folders; no AI voice, no voice cloning.
 
 ---
 
-## 1. Current status (one paragraph)
+## UPDATE — character v2 from supplied artwork (supersedes the "blocked on a character image" status above)
+
+The client supplied layered character art in `../NETHERLANDS/SCENE-01-MONEY/` (merged from `main`). It is now the character.
+
+- **Parts received (all transparent SVG, auto-traced vector, each in a DIFFERENT canvas size/scale):** head base with ears, nose
+  and neck · eyebrows · eyes · mouth (one open smile) · hair · bare torso · striped polo with backpack straps · pointing arm ·
+  open-palm arm · `charcater-1.svg` (assembled 3/4 reference) · two pose-sheet screenshots (targets, not usable as parts).
+- **Prep:** `scripts/prep-character2.mjs` crops each part to its artwork, namespaces its CSS classes, splits brows into L/R and
+  eyes into eye + movable iris → `public/character2/` + `src/character2/parts.json`. Originals untouched, no colour changes.
+- **Assembly:** `src/character2/layout.json` places every part with a uniform scale only (eyes 0.47, mouth 0.231, hair 0.79,
+  torso 1.2, polo 1.12, pointing arm 0.63, palm arm 1.0, relative to the head). `scripts/assembly-test.mjs` renders a static check.
+- **Component:** `src/character2/Character2.tsx` (head tilt/shift, each brow, blink + squint, pupil direction, mouth
+  open/width/frown/"oh", body lean/squash, per-side arm: point / palm / tucked behind the back, mirrored as needed).
+  `perform2.ts` = keyframed acting + voice-driven mouth/head/brow accents + blinks.
+- **Deliverables:** `docs/character-v2-assembly.png` (assembly preview), `preview/scene1-character-v2-test.mp4`
+  (11 s Scene 1 test on the existing narration/SFX/music; composition `Scene1Test`), `docs/scene1-character-v2-test-sheet.jpg`.
+- The old rig (`src/rig/`), the v1 draft and the `Netherlands2027` composition are unchanged.
+
+**Limits of the supplied set (what to ask the illustrator for next):**
+1. Only ONE mouth (open smile). Frown = that mouth flipped; "oh" = it narrowed; closed = it squashed. Need: closed neutral,
+   closed smirk, frown/grumble, round "oh", wide shout, plus 2–3 talking shapes.
+2. Only TWO arm drawings (pointing, open palm). Recoil = palm arms rotated; "rest" = palm arm tucked behind the back.
+   Need: relaxed hanging arm (L+R), raised open hands for the recoil (as in the Pose 4 screenshot), hand-on-chin, fist.
+3. Head is front-facing only; the screenshots show 3/4 and tilted heads. Need a 3/4 head (base + matching features).
+4. No eyelids as separate art (blink/half-lid is a vertical squash + a drawn lash line). Upper-lid shapes would help.
+5. Torso has no trousers; the polo hem must stay below the frame, which limits wide shots. Need waist/legs for full-body shots.
+6. Arm sleeves and the polo's own sleeves both exist, so sleeves double up slightly at the shoulders.
+
+**Next:** client reviews the Scene 1 test → if the performance is approved, request the extra parts above (or accept the
+work-arounds) → rebuild scenes 2–5 on `Character2` reusing the existing graphics components and timeline.
+
+---
+
+## 1. Current status (before character v2 arrived) (one paragraph)
 
 A complete five-scene **first draft** exists (65 s, 1080×1920, with processed narration, sound effects, music and captions).
 The client accepts its **structure, timing, graphics and branding as a starting point** but **rejected the character** — twice:

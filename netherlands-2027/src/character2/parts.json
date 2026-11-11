@@ -1,0 +1,114 @@
+{
+ "head": {
+  "file": "blank_faced_cartoon_portrait_base.svg",
+  "x": -2,
+  "y": -2,
+  "w": 643.3,
+  "h": 884,
+  "shapes": 38
+ },
+ "browL": {
+  "file": "bold_curved_cartoon_eyebrows.svg",
+  "x": 92.3,
+  "y": 181.2,
+  "w": 195.6,
+  "h": 81.9,
+  "shapes": 1
+ },
+ "browR": {
+  "file": "bold_curved_cartoon_eyebrows.svg",
+  "x": 363.1,
+  "y": 181.3,
+  "w": 195.6,
+  "h": 81.9,
+  "shapes": 11
+ },
+ "eyeL": {
+  "file": "friendly_cartoon_eyes_on_transparent_background.svg",
+  "x": 38.4,
+  "y": 340,
+  "w": 335.2,
+  "h": 281.4,
+  "shapes": 15
+ },
+ "eyeR": {
+  "file": "friendly_cartoon_eyes_on_transparent_background.svg",
+  "x": 573.1,
+  "y": 340,
+  "w": 335.3,
+  "h": 281.1,
+  "shapes": 16
+ },
+ "irisL": {
+  "file": "friendly_cartoon_eyes_on_transparent_background.svg",
+  "x": 155.9,
+  "y": 404.6,
+  "w": 190.5,
+  "h": 209.4,
+  "shapes": 7
+ },
+ "irisR": {
+  "file": "friendly_cartoon_eyes_on_transparent_background.svg",
+  "x": 599.2,
+  "y": 404.1,
+  "w": 188.5,
+  "h": 210,
+  "shapes": 7
+ },
+ "mouth": {
+  "file": "smiling_brown_cartoon_mouth.svg",
+  "x": -0.2,
+  "y": 434.5,
+  "w": 932.9,
+  "h": 510.7,
+  "shapes": 45
+ },
+ "hair": {
+  "file": "curly_afro_fade_hair_cutout.svg",
+  "x": 110.3,
+  "y": 97.3,
+  "w": 672.1,
+  "h": 550.8,
+  "shapes": 109
+ },
+ "torso": {
+  "file": "clean_vector_male_torso_base.svg",
+  "x": 6.7,
+  "y": -2,
+  "w": 678.2,
+  "h": 1040.2,
+  "shapes": 70
+ },
+ "polo": {
+  "file": "cream_and_navy_striped_polo_overlay.svg",
+  "x": 1.3,
+  "y": -2,
+  "w": 909.7,
+  "h": 976,
+  "shapes": 170
+ },
+ "armPoint": {
+  "file": "pointing_arm_with_smartwatch.svg",
+  "x": 47.2,
+  "y": 114.2,
+  "w": 859.2,
+  "h": 944.4,
+  "shapes": 96
+ },
+ "armPalm": {
+  "file": "open_palm_with_navy_smartwatch.svg",
+  "x": -2,
+  "y": 333,
+  "w": 914,
+  "h": 548.8,
+  "shapes": 90
+ },
+ "reference": {
+  "file": "charcater-1.svg",
+  "x": -1.6,
+  "y": -1.9,
+  "w": 703.6,
+  "h": 965.8,
+  "shapes": 120
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "_comment": "Placement of every supplied part in ONE shared space (units = the head artwork's own units, origin = top-left of the head part). s = uniform scale only \u2013 no part is stretched. Order of drawing is fixed in Character2.tsx.",
+ "head": {
+  "x": 0,
+  "y": 0,
+  "s": 1
+ },
+ "browL": {
+  "x": 94.3,
+  "y": 183.2,
+  "s": 1
+ },
+ "browR": {
+  "x": 365.1,
+  "y": 183.3,
+  "s": 1
+ },
+ "eyeL": {
+  "x": 122.7,
+  "y": 252,
+  "s": 0.47
+ },
+ "eyeR": {
+  "x": 374,
+  "y": 252,
+  "s": 0.47
+ },
+ "irisL": {
+  "x": 178,
+  "y": 282.4,
+  "s": 0.47
+ },
+ "irisR": {
+  "x": 386.3,
+  "y": 282.1,
+  "s": 0.47
+ },
+ "mouth": {
+  "x": 219,
+  "y": 470,
+  "s": 0.231
+ },
+ "hair": {
+  "x": 61,
+  "y": -100,
+  "s": 0.79
+ },
+ "torso": {
+  "x": -94,
+  "y": 700,
+  "s": 1.2
+ },
+ "polo": {
+  "x": -215,
+  "y": 690,
+  "s": 1.12
+ },
+ "armPoint": {
+  "x": -235,
+  "y": 720,
+  "s": 0.63
+ },
+ "armPalm": {
+  "x": -135,
+  "y": 772,
+  "s": 1.0
+ },
+ "armPalmMirror": {
+  "x": -177,
+  "y": 772,
+  "s": 1.0
+ },
+ "armPointMirror": {
+  "x": 293,
+  "y": 720,
+  "s": 0.63
+ },
+ "pivots": {
+  "neck": [
+   317,
+   720
+  ],
+  "shoulderL": [
+   -40,
+   800
+  ],
+  "shoulderR": [
+   640,
+   810
+  ],
+  "eyeL": [
+   201,
+   318
+  ],
+  "eyeR": [
+   453,
+   318
+  ],
+  "mouth": [
+   327,
+   478
+  ]
+ }
+}
