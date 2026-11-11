@@ -1,13 +1,11 @@
 /**
  * Dexterity brand + contact details – the ONE place to edit them.
  *
- * Source: earlier Dexterity Educational Consult videos in this repository
- * (branches feature/dexterity-skit*, feature/dexterity-motion-budapest*: src/config/brand.ts) and Logo.svg at the repo root.
- *
- * !! WEBSITE NEEDS CLIENT CONFIRMATION !!
- *   - Educational-Consult videos (Budapest skit / motion):      dexterityedutravel.com
- *   - Heritage-tour campaign (claude/lucid-gauss-jxelbv, Nov 2026 "client update"): dexterityedutour.com
- * The draft shows the Educational-Consult address because this is a study-abroad video. Do not publish until confirmed.
+ * Client decisions (review of draft v1):
+ *   - Name on screen: "Dexterity Educational Consult" (matches the voice-over). Study-abroad branding only – keep the tour brand separate.
+ *   - Website: dexterityeduconsult.com – PROVISIONAL, to be confirmed before publishing (websiteConfirmed = false).
+ *   - Phones: from the earlier study-abroad videos (feature/dexterity-skit*, feature/dexterity-motion-budapest*: src/config/brand.ts).
+ *     Both of those projects carry the same two numbers; no newer approved asset contradicts them. Re-confirm before publishing.
  */
 export const BRAND = {
   name: "Dexterity Educational Consult",
@@ -18,14 +16,19 @@ export const BRAND = {
   cream: "#FBF3E6",
   ink: "#0D1330",
   phones: ["024 448 9721", "030 398 4034"], // 0244489721, 0303984034 – which one carries WhatsApp is not documented
-  website: "dexterityedutravel.com",
+  website: "dexterityeduconsult.com", // PROVISIONAL
   websiteConfirmed: false,
 } as const;
 
-/** Tuition as supplied in the brief – NOT independently verified. Confirm with each university before publishing. */
+/**
+ * PROVISIONAL – NOT VERIFIED. Tuition as supplied in the brief; the client notes these differ from the universities' publicly
+ * listed fees. Edit the four figures here (nothing else needs touching) and get final client confirmation before publishing.
+ * `city` is left generic for Wittenborg on purpose: it has several locations (Apeldoorn, Amsterdam, …) – confirm which to show.
+ */
+export const TUITION_CONFIRMED = false;
 export const SCHOOLS = {
   srh: { name: "SRH Haarlem", sub: "University of Applied Sciences", city: "Haarlem", bachelor: "€9,950", master: "€12,500", color: "#E8500E" },
-  witt: { name: "Wittenborg", sub: "University of Applied Sciences", city: "Apeldoorn", bachelor: "€9,250", master: "€12,250", color: "#1C3F94" },
+  witt: { name: "Wittenborg", sub: "University of Applied Sciences", city: "Netherlands", bachelor: "€9,250", master: "€12,250", color: "#1C3F94" },
 } as const;
 
 export const FONT = { display: "'Baloo 2', 'Trebuchet MS', sans-serif", body: "Montserrat, 'Helvetica Neue', Arial, sans-serif" };
