@@ -1,0 +1,29 @@
+{
+  "name": "dex-netherlands-2027",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dexterity Educational Consult \u2014 'Chale, Have You Heard About This?' Netherlands 2027 cartoon (Remotion)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "prep": "node scripts/prep-media.mjs && node scripts/gen-map.mjs",
+    "audio": "python3 audio/process_vo.py && python3 audio/build_timeline.py && python3 audio/make_sfx.py && python3 audio/make_music.py && python3 audio/mix.py",
+    "render:draft": "bash scripts/render.sh draft",
+    "render:full": "bash scripts/render.sh full"
+  },
+  "dependencies": {
+    "@fontsource/baloo-2": "^5.1.0",
+    "@fontsource/montserrat": "^5.1.0",
+    "@remotion/cli": "^4.0.250",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.250"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
+    "typescript": "^5.6.3",
+    "world-atlas": "^2.0.2"
+  }
+}
