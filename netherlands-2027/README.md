@@ -3,6 +3,8 @@
 Single-character cartoon promo for **Dexterity Educational Consult** (Netherlands 2027 intake).
 React + TypeScript + [Remotion](https://remotion.dev) · 1080×1920 · 30 fps · **65.0 s** (first draft, v1).
 
+> **Resuming this project? Read [`NEXT_STEPS.md`](NEXT_STEPS.md) first** — status, approved direction, and what to do next.
+
 **Preview:** `preview/netherlands-2027-draft-v1.mp4` · contact sheet: `docs/contact-sheet-draft-v1.jpg` · character model sheet: `docs/rig-model-sheet.png`
 **Reviews:** [`docs/AUDIO_REVIEW.md`](docs/AUDIO_REVIEW.md) · [`docs/PRODUCTION_REVIEW.md`](docs/PRODUCTION_REVIEW.md) (open questions, missing assets, limitations)
 
